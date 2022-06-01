@@ -1,6 +1,5 @@
 # How to use CPP
 
-- [XX - Makefile](./Makefile)
 - [00 - namespace](./00_namespace.md)
 - [01 - stdio streams](./01_stdio_streams.md)
 - [02 - class & instance](./02_class_and_instance.md)
@@ -17,4 +16,5 @@
 
 ## Ressources
 
+- [Makefile](./Makefile)
 - [cplusplus.com](https://www.cplusplus.com/)
