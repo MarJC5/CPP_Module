@@ -2,7 +2,7 @@
 
 - [XX - Makefile](./Makefile)
 - [00 - namespace](./00_namespace.md)
-- [01 - stdio & streams](./01_stdio_streams.md)
+- [01 - stdio streams](./01_stdio_streams.md)
 - [02 - class & instance](./02_class_and_instance.md)
 - [03 - member attributes & member function](./03_member_attributes_and_member_function.md)
 - [04 - this](./04_this.md)
@@ -14,3 +14,7 @@
 - [10 - comparisons](./10_comparisons.md)
 - [11 - non member attributes & non member functions](./11_non_member_attributes_and_non_member_functions.md)
 - [12 - pointers to members](./12_pointers_to_members.md)
+
+## Ressources
+
+- [cplusplus.com](https://www.cplusplus.com/)
