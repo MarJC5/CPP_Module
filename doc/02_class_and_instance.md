@@ -6,7 +6,7 @@ For Example: Consider the Class of Cars. There may be many cars with different n
 
 ``ClassName.hpp``
 
-```hpp
+```h
 #ifndef CLASS_NAME_H
 # define CLASS_NAME_H
 
@@ -26,7 +26,7 @@ class Sample {
 #endif
 ```
 
-A **constructor** is a special type of member function of a class which initializes objects of a class. In C++, Constructor is automatically called when object(instance of class) is created. It is special member function of the class because it does not have any return type.
+A **constructor** is a special type of member function of a class which initializes objects of a class. In C++, Constructor is automatically called when object(instance of class) is created. It is special member function of the __class because it does not have any return type__.
 
 **Destructor** is an instance member function which is invoked automatically whenever an object is going to be destroyed. Meaning, a destructor is the last function that is going to be called before an object is destroyed.
 

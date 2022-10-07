@@ -18,3 +18,37 @@
 
 - [Makefile](./Makefile)
 - [cplusplus.com](https://www.cplusplus.com/)
+
+## C++98 Standard library
+
+``<cassert> (assert.h)``: C Diagnostics Library (header)
+
+``<cctype> (ctype.h)``: Character handling functions (header)
+
+``<cerrno> (errno.h)``: C Errors (header)
+
+``<cfloat> (float.h)``: Characteristics of floating-point types (header)
+
+``<ciso646> (iso646.h)``: ISO 646 Alternative operator spellings (header)
+
+``<climits> (limits.h)``: Sizes of integral types (header)
+
+``<clocale> (locale.h)``: C localization library (header)
+
+``<cmath> (math.h)``: C numerics library (header)
+
+``<csetjmp> (setjmp.h)``: Non local jumps (header)
+
+``<csignal> (signal.h)``: C library to handle signals (header)
+
+``<cstdarg> (stdarg.h)``: Variable arguments handling (header)
+
+``<cstddef> (stddef.h)``: C Standard definitions (header)
+
+``<cstdio> (stdio.h)``: C library to perform Input/Output operations (header)
+
+``<cstdlib> (stdlib.h)``: C Standard General Utilities Library (header)
+
+``<cstring> (string.h)``: C Strings (header)
+
+``<ctime> (time.h)``: C Time Library (header)

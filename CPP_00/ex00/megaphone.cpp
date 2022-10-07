@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: jmartin <jmartin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 19:08:51 by jmartin           #+#    #+#             */
-/*   Updated: 2022/10/07 07:44:48 by jmartin          ###   ########.fr       */
+/*   Updated: 2022/10/07 09:56:34 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ int main(int argc, char **argv)
         for (int i = 1; i < argc; i++)
         {
             for (size_t j = 0; j < strlen(argv[i]); j++)
-                std::cout << (char) toupper(argv[i][j]);
-            std::cout << " ";
+                std::cout << char(toupper(argv[i][j]));
         }
         std::cout << std::endl;
     }
