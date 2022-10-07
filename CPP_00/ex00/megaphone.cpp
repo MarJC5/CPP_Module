@@ -6,12 +6,12 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 19:08:51 by jmartin           #+#    #+#             */
-/*   Updated: 2022/05/31 21:52:08 by jmartin          ###   ########.fr       */
+/*   Updated: 2022/10/07 07:44:48 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string>
+#include <cstring>
 
 using namespace std;
 
@@ -23,6 +23,7 @@ int main(int argc, char **argv)
         {
             for (size_t j = 0; j < strlen(argv[i]); j++)
                 std::cout << (char) toupper(argv[i][j]);
+            std::cout << " ";
         }
         std::cout << std::endl;
     }

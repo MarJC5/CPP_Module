@@ -20,11 +20,11 @@ OBJS		:= ${patsubst %, ${O_DIR}%, ${OBJS_FILES}}
 # FLAGS
 CC			= g++
 CFLAGS		= -Wall -Wextra -Werror
-CPP_FLAGS 	= -std=c++98
+CPP_FLAGS 	= -std=c++98 -pedantic
 
 # COMMANDS
-MKDIR		= mkdir
-RM			= rm -f
+MKDIR		= mkdir -p
+RM			= rm -rf
 
 all: ${NAME}
 
