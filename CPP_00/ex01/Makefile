@@ -6,11 +6,11 @@ CYAN	= \033[0;36m
 RESET	= \033[0m
 
 # PROGRAM
-NAME		= 
+NAME		= phonebook
 
 # FOLDERS & FILES
 SRCS_DIR	= ./
-SRCS_FILES	=  
+SRCS_FILES	=  PhoneBook.cpp
 SRCS		:= ${patsubst %, ${SRCS_DIR}%, ${SRCS_FILES}}
 
 O_DIR		= ./objs/
