@@ -6,7 +6,7 @@
     </h4>
 </h1>
 
-## [How to use CPP](./CPP_Module.wiki/Home.md)
+## [How to use CPP](https://github.com/MarJC5/CPP_Module/wiki)
 
 ## CPP 00
 
