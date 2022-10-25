@@ -10,7 +10,7 @@ NAME		= phonebook
 
 # FOLDERS & FILES
 SRCS_DIR	= ./
-SRCS_FILES	=  PhoneBook.cpp
+SRCS_FILES	= main.cpp PhoneBook.cpp Contact.cpp
 SRCS		:= ${patsubst %, ${SRCS_DIR}%, ${SRCS_FILES}}
 
 O_DIR		= ./objs/
