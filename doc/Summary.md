@@ -16,8 +16,9 @@
 
 ## Ressources
 
-- [Makefile](./Makefile)
+- [Makefile](res/Makefile)
 - [cplusplus.com](https://www.cplusplus.com/)
+- [github.com/qingqingqingli/CPP](https://github.com/qingqingqingli/CPP/wiki)
 
 ## C++98 Standard library
 
