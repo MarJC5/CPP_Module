@@ -13,26 +13,26 @@
 #ifndef PHONEBOOK_H
 # define PHONEBOOK_H
 
-#include "Contact.hpp"
+# define ADD "ADD"
+# define SEARCH "SEARCH"
+# define EXIT "EXIT"
+
+# include <iostream>
+# include "Contact.hpp"
 
 class PhoneBook {
 
-private:
-	/* data */
+	public:
 
-public:
-	PhoneBook(/* args */);
-	~PhoneBook();
-};
+		PhoneBook();
+		~PhoneBook();
 
-class Contact {
-	
-private:
-	/* data */
+		void    addContact(void);
+		void    searchContact(void);
 
-public:
-	Contact(/* args */);
-	~Contact();
+	private:
+
+		Contact contacts[8];
 };
 
 #endif

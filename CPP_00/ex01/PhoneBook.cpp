@@ -11,3 +11,21 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+void    PhoneBook::PhoneBook(void) {
+	std::cout << "PhoneBook constructor called" << std::endl;
+	return;
+}
+
+void    PhoneBook::~PhoneBook(void) {
+	std::cout << "PhoneBook destructor called" << std::endl;
+	return;
+}
+
+void    PhoneBook::addContact() {
+
+}
+
+void PhoneBook::searchContact() {
+
+}

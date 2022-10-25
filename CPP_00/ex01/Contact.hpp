@@ -13,14 +13,31 @@
 #ifndef CONTACT_H
 # define CONTACT_H
 
+# include <iostream>
+
 class Contact {
 
-private:
-	/* data */
+	public:
+		Contact();
+		~Contact();
 
-public:
-	Contact(/* args */);
-	~Contact();
+		bool       saveContact();
+		void       showContact();
+		static int getNbContact(void);
+
+	private:
+		static std::string  _fields[5];
+		std::string         _details[5];
+		static int          _NbContact;
+		int                 _index;
+		// User-defined data type
+		enum _user {
+			firstName,
+			lastName,
+			nickname,
+			phoneNumber,
+			darkestSecret
+		};
 };
 
 #endif

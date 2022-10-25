@@ -22,7 +22,8 @@ NAME		= phonebook
 
 # FOLDERS & FILES
 SRCS_DIR	= ./
-SRCS_FILES	= main.cpp PhoneBook.cpp Contact.cpp
+SRCS_FILES	= main.cpp
+SRCS_FILES	+= PhoneBook.cpp Contact.cpp
 SRCS		:= ${patsubst %, ${SRCS_DIR}%, ${SRCS_FILES}}
 
 O_DIR		= ./objs/
@@ -30,7 +31,7 @@ OBJS_FILES	:= ${SRCS_FILES:.cpp=.o}
 OBJS		:= ${patsubst %, ${O_DIR}%, ${OBJS_FILES}}
 
 # FLAGS
-CC			= g++-12
+CC			= g++
 CFLAGS		= -Wall -Wextra -Werror
 CPP_FLAGS 	= -std=c++98 -pedantic
 

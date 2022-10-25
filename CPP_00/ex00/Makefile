@@ -18,7 +18,7 @@ OBJS_FILES	:= ${SRCS_FILES:.cpp=.o}
 OBJS		:= ${patsubst %, ${O_DIR}%, ${OBJS_FILES}}
 
 # FLAGS
-CC			= g++-12
+CC			= g++
 CFLAGS		= -Wall -Wextra -Werror
 CPP_FLAGS 	= -std=c++98 -pedantic
 
