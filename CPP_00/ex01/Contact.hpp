@@ -14,6 +14,8 @@
 # define CONTACT_H
 
 # include <iostream>
+# include <string>
+# include "format.h"
 
 class Contact {
 
@@ -21,23 +23,17 @@ class Contact {
 		Contact();
 		~Contact();
 
-		bool       saveContact();
-		void       showContact();
-		static int getNbContact(void);
+		bool                setContact(int index);
+		void                showContact(int NbInfo);
+		void                showHeader(int NbInfo);
 
 	private:
-		static std::string  _fields[5];
-		std::string         _details[5];
-		static int          _NbContact;
+		static std::string  _fields[6];
+		std::string         _details[6];
 		int                 _index;
-		// User-defined data type
-		enum _user {
-			firstName,
-			lastName,
-			nickname,
-			phoneNumber,
-			darkestSecret
-		};
+		int				    _NbDetails;
+
+		void    		    _fieldSeparator(int NbInfo);
 };
 
 #endif

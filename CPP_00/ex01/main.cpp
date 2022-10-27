@@ -20,17 +20,20 @@ int main(void)
 
 	while (!isExit)
 	{
-		std::cout << "> ";
+		std::cout << C << "> " << NC;
 		std::getline(std::cin, userLine);
-		if (userLine == EXIT)
-		{
-			std::cout << EXIT << "\nsee you!" << std::endl;
+		std::cout << NL;
+		if (userLine == EXIT) {
+			std::cout << EXIT << std::endl << "see you!" << std::endl;
 			isExit = true;
-		}
-		if (userLine == ADD)
+		} else if (userLine == ADD) {
 			phonebook.addContact();
-		if (userLine == SEARCH)
+		} else if (userLine == SEARCH) {
 			phonebook.searchContact();
+		} else {
+			std::cout << IC << "Please use one of the following commands:" << NC << std::endl;
+			std::cout << ADD << std::endl << SEARCH << std::endl << EXIT << std::endl;
+		}
 	}
 	return (0);
 }

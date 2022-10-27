@@ -16,8 +16,10 @@
 # define ADD "ADD"
 # define SEARCH "SEARCH"
 # define EXIT "EXIT"
+# define MAX_CONTACTS 8
 
 # include <iostream>
+# include "format.h"
 # include "Contact.hpp"
 
 class PhoneBook {
@@ -32,7 +34,10 @@ class PhoneBook {
 
 	private:
 
-		Contact contacts[8];
+		int     _items;
+		Contact _contacts[8];
+
+		void    _printPhoneBook(int NbInfo);
 };
 
 #endif

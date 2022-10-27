@@ -12,43 +12,92 @@
 
 #include "Contact.hpp"
 
-std::string Contact::_fields[5] = {
-	"first name",
+std::string Contact::_fields[6] = {
+	"Index",
+	"First name",
 	"Last name",
-	"nickname",
-	"phone number",
-	"darkest secret"
+	"Nickname",
+	"Phone number",
+	"Darkest secret"
 };
 
-int Contact::_NbContact = 0;
-
-void    Contact::Contact(){
-	std::cout << "Contact constructor called" << std::endl;
-	Contact::_NbContact += 1;
-	return;
-}
-
-void    Contact::~Contact(void) {
-	std::cout << "Contact destructor called" << std::endl;
-	Contact::_NbContact -= 1;
-	return;
-}
-
-bool    Contact::saveContact() {
-	std::cout << "# Please fill the following: " << std::endl;
-	for (int i = this->_user::firstName; i < this->_user::darkestSecret; i++) {
-		std::cout << "# " << this->_fields[i] << ":" << std::endl;
-		std::getline(std::cin, this->_details[i]);
+Contact::Contact() {
+	this->_NbDetails = 6;
+	for (int i = 0; i < this->_NbDetails; i++) {
+		this->_details[i] = std::string();
 	}
-	std::cout << "Contact added to phonebook." << std::endl;
+	return;
+}
+
+ Contact::~Contact(void) {
+	return;
+}
+
+void    Contact::_fieldSeparator(int NbInfo) {
+	for (int i = 0; i < (NbInfo * 11) + 1; i++)
+		std::cout << C << "-" << NC;
+	std::cout << std::endl;
+}
+
+void    Contact::showHeader(int NbInfo) {
+	this->_fieldSeparator(NbInfo);
+	for (int i = 0; i < NbInfo; i++) {
+		std::cout << C << "|";
+		if (this->_fields[i].length() > 10) {
+			std::cout << this->_fields[i].substr(0, 9) << ".";
+		} else {
+			std::cout << this->_fields[i];
+			for (long unsigned int j = 0; j < 10 - this->_fields[i].length(); j++) {
+				std::cout << " ";
+			}
+		}
+	}
+	std::cout << "|" << NC << std::endl;
+}
+
+bool    Contact::setContact(int index) {
+	std::string input;
+
+	this->_index = index + 1;
+	this->_details[0] = '0' + (this->_index % 10);
+	std::cout << C << "# Please fill the following:" << NC << std::endl;
+	for (int i = 1; i < this->_NbDetails; i++) {
+		std::cout << "# " << this->_fields[i] << ":" << std::endl;
+		std::cout << C << "> " << NC;
+		std::getline(std::cin, this->_details[i]);
+		if (this->_details[i].length() == 0) {
+			std::cout << EC << "# Error: Empty field." << NC << std::endl;
+			input.clear();
+			while (input.length() == 0) {
+				std::cout << "# Do you want to continue ? [y/n]: ";
+				std::getline(std::cin, input);
+				if (input == "y") {
+					i--;
+				} else if (input == "n") {
+					std::cout << IC << "# Contact hasn't been added to phonebook.\n" << NC << std::endl;
+					return (false);
+				}
+			}
+		}
+	}
+	std::cout << SC << "# Contact n°" << this->_index << " added to phonebook.\n" << NC << std::endl;
 	return (true);
 }
 
-void    Contact::showContact() {
-
-}
-
-int Contact::getNbContact(void)
-{
-	return Contact::_NbContact;
+void    Contact::showContact(int NbInfo) {
+	this->_fieldSeparator(NbInfo);
+	for (int i = 0; i < NbInfo; i++) {
+		std::cout << C << "|" << NC;
+		if (this->_details[i].length() > 10) {
+			std::cout << this->_details[i].substr(0, 9) << ".";
+		} else {
+			std::cout << this->_details[i];
+			for (long unsigned int j = 0; j < 10 - this->_details[i].length(); j++) {
+				std::cout << " ";
+			}
+		}
+	}
+	std::cout << C << "|" << NC << std::endl;
+	if (NbInfo == this->_index)
+		this->_fieldSeparator(NbInfo);
 }
