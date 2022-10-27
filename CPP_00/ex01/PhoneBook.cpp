@@ -24,7 +24,7 @@ PhoneBook::~PhoneBook(void) {
 void    PhoneBook::_printPhoneBook(int NbInfo) {
 	for (int i = 0; i < this->_items; ++i) {
 		if (i == 0)
-			this->_contacts[i]._showHeader(NbInfo);
+			this->_contacts[i].showHeader(NbInfo);
 		this->_contacts[i].showContact(NbInfo);
 	}
 }
@@ -35,6 +35,9 @@ void    PhoneBook::addContact() {
 			this->_items++;
 		}
 	} else {
+		if (this->_contacts[this->_items].setContact(this->_items)) {
+			this->_items++;
+		}
 		std::cout << IC << "Phonebook is full." << NC << std::endl;
 	}
 	return;

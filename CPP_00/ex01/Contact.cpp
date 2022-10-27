@@ -13,12 +13,12 @@
 #include "Contact.hpp"
 
 std::string Contact::_fields[6] = {
-	"Index",
-	"First name",
-	"Last name",
-	"Nickname",
-	"Phone number",
-	"Darkest secret"
+	"INDEX",
+	"FIRST NAME",
+	"LAST NAME",
+	"NICKNAME",
+	"PHONE NUMBER",
+	"DARKEST SECRET"
 };
 
 Contact::Contact() {
@@ -46,10 +46,10 @@ void    Contact::showHeader(int NbInfo) {
 		if (this->_fields[i].length() > 10) {
 			std::cout << this->_fields[i].substr(0, 9) << ".";
 		} else {
-			std::cout << this->_fields[i];
 			for (long unsigned int j = 0; j < 10 - this->_fields[i].length(); j++) {
 				std::cout << " ";
 			}
+			std::cout << this->_fields[i];
 		}
 	}
 	std::cout << "|" << NC << std::endl;
@@ -73,6 +73,7 @@ bool    Contact::setContact(int index) {
 				std::getline(std::cin, input);
 				if (input == "y") {
 					i--;
+					break;
 				} else if (input == "n") {
 					std::cout << IC << "# Contact hasn't been added to phonebook.\n" << NC << std::endl;
 					return (false);
@@ -91,10 +92,10 @@ void    Contact::showContact(int NbInfo) {
 		if (this->_details[i].length() > 10) {
 			std::cout << this->_details[i].substr(0, 9) << ".";
 		} else {
-			std::cout << this->_details[i];
 			for (long unsigned int j = 0; j < 10 - this->_details[i].length(); j++) {
 				std::cout << " ";
 			}
+			std::cout << this->_details[i];
 		}
 	}
 	std::cout << C << "|" << NC << std::endl;

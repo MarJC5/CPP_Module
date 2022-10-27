@@ -22,7 +22,7 @@ int main(void)
 	{
 		std::cout << C << "> " << NC;
 		std::getline(std::cin, userLine);
-		std::cout << NL;
+		//std::cout << u8"\033[2J\033[1;1H";
 		if (userLine == EXIT) {
 			std::cout << EXIT << std::endl << "see you!" << std::endl;
 			isExit = true;
