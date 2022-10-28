@@ -21,11 +21,11 @@ PhoneBook::~PhoneBook(void) {
 	return;
 }
 
-void    PhoneBook::_printPhoneBook(int NbInfo) {
+void    PhoneBook::_printPhoneBook() {
 	for (int i = 0; i < MAX_CONTACTS; ++i) {
 		if (i == 0)
-			this->_contacts[i].showHeader(NbInfo);
-		this->_contacts[i].showContact(NbInfo);
+			this->_contacts[i].showHeader(4);
+		this->_contacts[i].showContact(4);
 	}
 }
 
@@ -47,15 +47,14 @@ void    PhoneBook::searchContact() {
 		std::cout << IC << "Phonebook is empty, please use " << NC << ADD << std::endl;
 		return;
 	}
-	this->_printPhoneBook(4);
+	this->_printPhoneBook();
 	std::cout << C << "\n# Please enter the index of the contact you want to see:" << NC << std::endl;
 	std::cout << C << "> " << NC;
 	std::getline(std::cin, input);
 	if (input.length() == 1 && input[0] >= '1' && input[0] <= '8') {
 		index = input[0] - '0';
 		if (index <= this->_items) {
-			this->_contacts[index - 1].showHeader(6);
-			this->_contacts[index - 1].showContact(6);
+			this->_contacts[index - 1].display();
 		} else {
 			std::cout << EC << "\nContact not found." << NC << std::endl;
 		}

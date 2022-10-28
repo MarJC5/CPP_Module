@@ -14,6 +14,7 @@
 # define CONTACT_H
 
 # include <iostream>
+# include <iomanip>
 # include <string>
 # include "format.h"
 
@@ -26,6 +27,7 @@ class Contact {
 		bool                setContact(int index);
 		void                showContact(int NbInfo);
 		void                showHeader(int NbInfo);
+		void                display();
 
 	private:
 		static std::string  _fields[6];

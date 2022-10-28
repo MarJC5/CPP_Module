@@ -40,20 +40,19 @@ void    Contact::_fieldSeparator(int NbInfo) {
 }
 
 void    Contact::showHeader(int NbInfo) {
-	this->_fieldSeparator(NbInfo);
-	for (int i = 0; i < NbInfo; i++) {
-		std::cout << C << "|";
-		if (this->_fields[i].length() > 10) {
-			std::cout << this->_fields[i].substr(0, 9) << ".";
-		} else {
-			for (long unsigned int j = 0; j < 10 - this->_fields[i].length(); j++) {
-				std::cout << " ";
+	if (!this->_fields[0].empty()) {
+		this->_fieldSeparator(NbInfo);
+		for (int i = 0; i < NbInfo; i++) {
+			std::cout << C << "|";
+			if (this->_fields[i].length() > 10) {
+				std::cout << this->_fields[i].substr(0, 9) << ".";
+			} else {
+				std::cout << std::setw(10) << this->_fields[i];
 			}
-			std::cout << this->_fields[i];
 		}
+		std::cout << "|" << NC << std::endl;
+		this->_fieldSeparator(NbInfo);
 	}
-	std::cout << "|" << NC << std::endl;
-	this->_fieldSeparator(NbInfo);
 }
 
 bool    Contact::setContact(int index) {
@@ -61,6 +60,8 @@ bool    Contact::setContact(int index) {
 	this->_details[0] = std::to_string(this->_index);
 	std::cout << C << "# Please fill the following:" << NC << std::endl;
 	for (int i = 1; i < this->_NbDetails; i++) {
+		if (!this->_details[i].empty())
+			this->_details[i].clear();
 		while (this->_details[i].empty()) {
 			std::cout << "# " << this->_fields[i] << ":" << std::endl;
 			std::cout << C << "> " << NC;
@@ -81,13 +82,32 @@ void    Contact::showContact(int NbInfo) {
 			if (this->_details[i].length() > 10) {
 				std::cout << this->_details[i].substr(0, 9) << ".";
 			} else {
-				for (long unsigned int j = 0; j < 10 - this->_details[i].length(); j++) {
-					std::cout << " ";
-				}
-				std::cout << this->_details[i];
+				std::cout << std::setw(10) << this->_details[i];
 			}
 		}
 		std::cout << C << "|" << NC << std::endl;
 		this->_fieldSeparator(NbInfo);
+	}
+}
+
+void   Contact::display(void) {
+	if (!this->_details[0].empty()) {
+		this->_fieldSeparator(2);
+		for (int i = 0; i < this->_NbDetails; i++) {
+			std::cout << C << "|";
+			if (this->_fields[i].length() > 10) {
+				std::cout << this->_fields[i].substr(0, 9) << ".";
+			} else {
+				std::cout << std::setw(10) << this->_fields[i];
+			}
+			std::cout << C << "|" << NC;
+			if (this->_details[i].length() > 10) {
+				std::cout << this->_details[i].substr(0, 9) << ".";
+			} else {
+				std::cout << std::setw(10) << this->_details[i];
+			}
+			std::cout << C << "|" << NC << std::endl;
+			this->_fieldSeparator(2);
+		}
 	}
 }

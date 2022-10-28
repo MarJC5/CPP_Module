@@ -26,7 +26,6 @@
 class PhoneBook {
 
 	public:
-
 		PhoneBook();
 		~PhoneBook();
 
@@ -34,11 +33,10 @@ class PhoneBook {
 		void    searchContact(void);
 
 	private:
-
 		int     _items;
 		Contact _contacts[8];
 
-		void    _printPhoneBook(int NbInfo);
+		void    _printPhoneBook(void);
 };
 
 #endif
