@@ -59,7 +59,7 @@ bool    Contact::setContact(int index) {
 	std::string input;
 
 	this->_index = index + 1;
-	this->_details[0] = '0' + (this->_index % 10);
+	this->_details[0] = std::to_string(this->_index);
 	std::cout << C << "# Please fill the following:" << NC << std::endl;
 	for (int i = 1; i < this->_NbDetails; i++) {
 		std::cout << "# " << this->_fields[i] << ":" << std::endl;
@@ -99,6 +99,4 @@ void    Contact::showContact(int NbInfo) {
 		}
 	}
 	std::cout << C << "|" << NC << std::endl;
-	if (NbInfo == this->_index)
-		this->_fieldSeparator(NbInfo);
 }
