@@ -22,14 +22,7 @@ PhoneBook::~PhoneBook(void) {
 }
 
 void    PhoneBook::_printPhoneBook(int NbInfo) {
-	int	 amout = 0;
-
-	if (this->_items >= MAX_CONTACTS) {
-		amout = MAX_CONTACTS;
-	} else {
-		amout = this->_items;
-	}
-	for (int i = 0; i < amout; ++i) {
+	for (int i = 0; i < MAX_CONTACTS; ++i) {
 		if (i == 0)
 			this->_contacts[i].showHeader(NbInfo);
 		this->_contacts[i].showContact(NbInfo);
@@ -37,18 +30,11 @@ void    PhoneBook::_printPhoneBook(int NbInfo) {
 }
 
 void    PhoneBook::addContact() {
-	if (this->_items >= MAX_CONTACTS) {
-		for (int i = 0; i < MAX_CONTACTS - 1; ++i) {
-			this->_contacts[i] = this->_contacts[i + 1];
-		}
-		if (this->_contacts[MAX_CONTACTS - 1].setContact(this->_items)) {
-			this->_items++;
-		}
+	if (this->_items == MAX_CONTACTS) {
+		this->_items = 0;
 	}
-	else {
-		if (this->_contacts[this->_items].setContact(this->_items)) {
-			this->_items++;
-		}
+	if (this->_contacts[this->_items].setContact(this->_items)) {
+		this->_items++;
 	}
 	return;
 }
@@ -65,23 +51,13 @@ void    PhoneBook::searchContact() {
 	std::cout << C << "\n# Please enter the index of the contact you want to see:" << NC << std::endl;
 	std::cout << C << "> " << NC;
 	std::getline(std::cin, input);
-	for(long unsigned i = 0 ; i < input.length();i++){
-		if (input[i] < '0' || input[i] > '9'){
-			std::cout << EC << "\nInvalid index." << NC << std::endl;
-			return;
-		}
-	}
-	if (input.length() > 0) {
-		index = std::stoi(input);
-		if (index >= 1 && index <= this->_items) {
-			if (index <= this->_items) {
-				this->_contacts[index - 1].showHeader(6);
-				this->_contacts[index - 1].showContact(6);
-			} else {
-				std::cout << EC << "\nContact not found." << NC << std::endl;
-			}
+	if (input.length() == 1 && input[0] >= '1' && input[0] <= '8') {
+		index = input[0] - '0';
+		if (index <= this->_items) {
+			this->_contacts[index - 1].showHeader(6);
+			this->_contacts[index - 1].showContact(6);
 		} else {
-			std::cout << EC << "\nInvalid index." << NC << std::endl;
+			std::cout << EC << "\nContact not found." << NC << std::endl;
 		}
 	} else {
 		std::cout << EC << "\nInvalid index." << NC << std::endl;

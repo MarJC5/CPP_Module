@@ -19,6 +19,7 @@
 # define MAX_CONTACTS 8
 
 # include <iostream>
+# include <stdlib.h>
 # include "format.h"
 # include "Contact.hpp"
 

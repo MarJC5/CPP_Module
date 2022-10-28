@@ -20,7 +20,4 @@
 # define SC "\033[0;32m"
 # define NC "\033[0m"
 
-// Clean prompt
-# define NL u8"\033[2J\033[1;1H";
-
 #endif
