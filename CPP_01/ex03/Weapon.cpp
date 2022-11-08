@@ -10,3 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Weapon.hpp"
+
+Weapon::Weapon() {
+	std::cout << "Weapon constructor called." << std::endl;
+}
+
+Weapon::~Weapon() {
+	std::cout << "Weapon destructor called." << std::endl;
+}
+
+Weapon::Weapon(std::string type) {
+	this->_type = type;
+};
+
+std::string Weapon::getType(void) {
+	return (this->_type);
+};
+
+void    Weapon::setType(std::string typePTR) {
+	this->_type = typePTR;
+};
