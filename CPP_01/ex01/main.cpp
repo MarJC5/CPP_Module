@@ -5,8 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 15:21:10 by jmartin           #+#    #+#             */
-/*   Updated: 2022/10/28 15:21:11 by jmartin          ###   ########.fr       */
+/*   Created: 2022/10/28 15:20:42 by jmartin           #+#    #+#             */
+/*   Updated: 2022/10/28 15:20:43 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Zombie.hpp"
+
+int main(void) {
+	int N = 5;
+
+	Zombie  *newHorde = zombieHorde(N, std::string("Franky"));
+	if (newHorde != NULL) {
+		for (int i = 0; i < N; ++i) {
+			newHorde[i].announce();
+		}
+	}
+	delete[] newHorde;
+	return (0);
+}
