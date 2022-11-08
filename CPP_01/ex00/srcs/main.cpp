@@ -6,21 +6,26 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 15:20:42 by jmartin           #+#    #+#             */
-/*   Updated: 2022/11/08 15:17:01 by jmartin          ###   ########.fr       */
+/*   Updated: 2022/11/08 15:16:50 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "../inc/Zombie.hpp"
 
-int main(void) {
-	int N = 5;
+int main( void ) {
 
-	Zombie  *newHorde = zombieHorde(N, std::string("Franky"));
-	if (newHorde != NULL) {
-		for (int i = 0; i < N; ++i) {
-			newHorde[i].announce();
-		}
-	}
-	delete[] newHorde;
+	Zombie *zombiePTR = newZombie( std::string("Luffy") );
+	zombiePTR->announce();
+
+	// Free
+	delete zombiePTR;
+
+	std::cout << std::endl;
+	Zombie zombie( std::string("Zoro") );
+	zombie.announce();
+
+	std::cout << std::endl;
+	randomChump( std::string("Sanji") );
+
 	return (0);
 }

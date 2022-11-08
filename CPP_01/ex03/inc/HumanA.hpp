@@ -10,16 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#indef HUMANA_HPP
+#ifndef HUMANA_HPP
 # define HUMANA_HPP
+
+# include "HumanA.h"
+# include "Weapon.hpp"
 
 class HumanA {
 
 	public:
-		HumanA();
-		~HumanA();
+		HumanA( std::string name, Weapon &weapon ); // reference to Weapon (pointer) initilized in constructor
+		~HumanA( void );
+
+		void	    attack( void );
 
 	private:
-
+		std::string	_name;
+		Weapon		_weapon;
 };
+
 #endif

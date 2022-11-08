@@ -18,10 +18,10 @@ CYAN	= \033[0;36m
 RESET	= \033[0m
 
 # PROGRAM
-NAME		= zombie
+NAME		= ex01
 
 # FOLDERS & FILES
-SRCS_DIR	= ./
+SRCS_DIR	= ./srcs/
 SRCS_FILES	= main.cpp
 SRCS_FILES	+= Zombie.cpp zombieHorde.cpp
 SRCS		:= ${patsubst %, ${SRCS_DIR}%, ${SRCS_FILES}}

@@ -18,12 +18,12 @@ CYAN	= \033[0;36m
 RESET	= \033[0m
 
 # PROGRAM
-NAME		= zombie
+NAME		= ex04
 
 # FOLDERS & FILES
-SRCS_DIR	= ./
+SRCS_DIR	= ./srcs/
 SRCS_FILES	= main.cpp
-SRCS_FILES	+= 
+SRCS_FILES	+= Replace.cpp
 SRCS		:= ${patsubst %, ${SRCS_DIR}%, ${SRCS_FILES}}
 
 O_DIR		= ./objs/
@@ -42,7 +42,7 @@ RM			= rm -rf
 all: ${NAME}
 
 # Compile normal executable
-${NAME}: ${O_DIR} ${OBJS}
+${NAME}: ${O_DIR}
 	@${CC} ${CFLAGS} ${CPP_FLAGS} -o ${NAME} ${OBJS}
 	@echo "[$(ORANGE)$(NAME)$(RESET)] Creation *.o files & compilation : $(GREEN)OK$(RESET)"
 	@echo "[\033[1;32msuccess$(RESET)]: $(NAME) is ready"

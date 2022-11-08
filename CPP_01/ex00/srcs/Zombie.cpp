@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 15:17:45 by jmartin           #+#    #+#             */
-/*   Updated: 2022/11/08 15:17:46 by jmartin          ###   ########.fr       */
+/*   Created: 2022/10/28 15:20:34 by jmartin           #+#    #+#             */
+/*   Updated: 2022/11/08 15:16:55 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include "../inc/Zombie.hpp"
 
-Weapon::Weapon() {
-	std::cout << "Weapon constructor called." << std::endl;
-}
-
-Weapon::~Weapon() {
-	std::cout << "Weapon destructor called." << std::endl;
-}
-
-Weapon::Weapon(std::string type) {
-	this->_type = type;
+Zombie::Zombie( std::string name ): _name(name) {
+	std::cout << GREEN << "Zombie "  << this->_name << " is born." << NC << std::endl;
 };
 
-std::string Weapon::getType(void) {
-	return (this->_type);
+Zombie::~Zombie( void ) {
+	std::cout << RED << this->_name << " is dead." << NC << std::endl;
 };
 
-void    Weapon::setType(std::string typePTR) {
-	this->_type = typePTR;
+void Zombie::announce( void ) {
+	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 };

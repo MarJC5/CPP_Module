@@ -10,22 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "../inc/Zombie.hpp"
 
-Zombie::Zombie(void) {};
-
-Zombie::~Zombie(void) {
-	std::cout << RED << this->_name << " is dead." << NC << std::endl;
+Zombie::Zombie( void ) {
+	std::cout << "Zombie constructor called." << std::endl;
 };
 
-Zombie::Zombie(std::string name): _name(name) {
+Zombie::Zombie( std::string name ): _name(name) {
 	std::cout << GREEN << "Zombie "  << this->_name << " is born." << NC << std::endl;
 };
 
-void Zombie::announce(void) {
+Zombie::~Zombie( void ) {
+	std::cout << RED << this->_name << " is dead." << NC << std::endl;
+};
+
+void Zombie::announce( void ) {
 	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 };
 
-void Zombie::setName(std::string name) {
+void Zombie::setName( std::string name ) {
 	this->_name = name;
 };

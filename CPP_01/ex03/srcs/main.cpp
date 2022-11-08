@@ -10,13 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include "../inc/HumanA.hpp"
+#include "../inc/HumanB.hpp"
+#include "../inc/Weapon.hpp"
 
 int main(void) {
-	Weapon club = Weapon(std::string("crude spiked club"));
-	club.setType(std::string("some other type of club"));
-	std::cout << "Weapon: " << club.getType() << std::endl;
-	/*{
+	{
 		Weapon club = Weapon("crude spiked club");
 		HumanA bob("Bob", club);
 		bob.attack();
@@ -30,6 +29,6 @@ int main(void) {
 		jim.attack();
 		club.setType("some other type of club");
 		jim.attack();
-	}*/
-	return 0;
+	}
+	return (0);
 }
