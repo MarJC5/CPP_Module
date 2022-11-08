@@ -10,3 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef ZOMBIE_H
+# define ZOMBIE_H
+
+// Colors
+# define GREEN	"\033[0;32m"
+# define RED 	"\033[0;31m"
+# define ORANGE	"\033[0;33m"
+# define CYAN	"\033[0;36m"
+# define NC     "\033[0m"
+
+void randomChump( std::string name );
+
+#endif

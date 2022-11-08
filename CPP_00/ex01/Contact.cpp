@@ -47,7 +47,7 @@ void    Contact::showHeader(int NbInfo) {
 			if (this->_fields[i].length() > 10) {
 				std::cout << this->_fields[i].substr(0, 9) << ".";
 			} else {
-				std::cout << std::setw(10) << this->_fields[i];
+				std::cout << std::right << std::setw(10) << this->_fields[i];
 			}
 		}
 		std::cout << "|" << NC << std::endl;
@@ -82,7 +82,7 @@ void    Contact::showContact(int NbInfo) {
 			if (this->_details[i].length() > 10) {
 				std::cout << this->_details[i].substr(0, 9) << ".";
 			} else {
-				std::cout << std::setw(10) << this->_details[i];
+				std::cout << std::right << std::setw(10) << this->_details[i];
 			}
 		}
 		std::cout << C << "|" << NC << std::endl;
@@ -92,22 +92,11 @@ void    Contact::showContact(int NbInfo) {
 
 void   Contact::display(void) {
 	if (!this->_details[0].empty()) {
-		this->_fieldSeparator(2);
 		for (int i = 0; i < this->_NbDetails; i++) {
-			std::cout << C << "|";
-			if (this->_fields[i].length() > 10) {
-				std::cout << this->_fields[i].substr(0, 9) << ".";
-			} else {
-				std::cout << std::setw(10) << this->_fields[i];
-			}
-			std::cout << C << "|" << NC;
-			if (this->_details[i].length() > 10) {
-				std::cout << this->_details[i].substr(0, 9) << ".";
-			} else {
-				std::cout << std::setw(10) << this->_details[i];
-			}
-			std::cout << C << "|" << NC << std::endl;
-			this->_fieldSeparator(2);
+			std::cout << C << "| ";
+			std::cout << std::left << std::setw(15) << this->_fields[i];
+			std::cout << C << "| " << NC;
+			std::cout << this->_details[i] << std::endl;
 		}
 	}
 }
