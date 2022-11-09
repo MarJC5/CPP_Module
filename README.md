@@ -8,7 +8,7 @@
 
 ## [How to use CPP](https://github.com/MarJC5/CPP_Module/wiki)
 
-## CPP 00
+## CPP 00 | `80/100`
 
 This first module of C++ is designed to help you understand the specifities of the language when compared to C. Time to dive into Object Oriented Programming!
 
@@ -16,7 +16,7 @@ This first module of C++ is designed to help you understand the specifities of t
 - [ex01](./CPP_00/ex01/)
 - [ex02](./CPP_00/ex02/)
 
-## CPP 01
+## CPP 01 | `in progress`
 
 This module is designed to help you understand the memory allocation, reference, pointers to members and the usage of the switch in CPP.
 
