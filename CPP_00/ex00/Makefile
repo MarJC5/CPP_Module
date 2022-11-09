@@ -9,7 +9,7 @@ RESET	= \033[0m
 NAME		= megaphone
 
 # FOLDERS & FILES
-SRCS_DIR	= ./
+SRCS_DIR	= ./srcs/
 SRCS_FILES	=  megaphone.cpp
 SRCS		:= ${patsubst %, ${SRCS_DIR}%, ${SRCS_FILES}}
 

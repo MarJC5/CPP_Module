@@ -9,8 +9,9 @@ RESET	= \033[0m
 NAME		= 
 
 # FOLDERS & FILES
-SRCS_DIR	= ./
-SRCS_FILES	=  
+SRCS_DIR	= ./srcs/
+SRCS_FILES	=  test.cpp
+SRCS_FILES	+=
 SRCS		:= ${patsubst %, ${SRCS_DIR}%, ${SRCS_FILES}}
 
 O_DIR		= ./objs/

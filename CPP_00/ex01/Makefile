@@ -21,7 +21,7 @@ RESET	= \033[0m
 NAME		= phonebook
 
 # FOLDERS & FILES
-SRCS_DIR	= ./
+SRCS_DIR	= ./srcs/
 SRCS_FILES	= main.cpp
 SRCS_FILES	+= PhoneBook.cpp Contact.cpp
 SRCS		:= ${patsubst %, ${SRCS_DIR}%, ${SRCS_FILES}}
