@@ -22,7 +22,7 @@ void    Replace::setFilename(std::string filename) {
 
 void    Replace::_write( std::string s1, std::string s2, std::ifstream *fd ) const {
 	std::ofstream ofs;
-	ofs.open(this->_filename + ".replace", std::ofstream::out | std::ofstream::trunc);
+	ofs.open(this->_filename + ".replace");
 	if (ofs.is_open()) {
 		std::string line;
 		while (std::getline(*fd, line, '\0')) {

@@ -51,11 +51,23 @@ void    Harl::complain( std::string level ) {
 	for (std::string::size_type i = 0; i < level.length(); ++i)
 		level[i] = std::tolower(level[i]); // convert to lowercase
 
-	for (int i = 0; i < 4; i++) {
-		if (level == levels[i]) {
-			(this->*f[i])(); // call the function
-			return ;
-		};
-	};
-	std::cout << "Invalid level" << std::endl;
+	for (this->_index = 0; level != levels[this->_index]; ++this->_index);
+
+	switch (this->_index) {
+		case 1:
+			(this->*f[0])();
+			break;
+		case 2:
+			(this->*f[1])();
+			break;
+		case 3:
+			(this->*f[2])();
+			break;
+		case 4:
+			(this->*f[3])();
+			break;
+		default:
+			std::cout << "[Probably complaining about insignificant problem]" << std::endl;
+			break;
+	} // Switch can run multiple condition (expression must be an int)
 };

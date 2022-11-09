@@ -18,12 +18,12 @@ CYAN	= \033[0;36m
 RESET	= \033[0m
 
 # PROGRAM
-NAME		= zombie
+NAME		= ./harlFilter
 
 # FOLDERS & FILES
-SRCS_DIR	= ./
+SRCS_DIR	= ./srcs/
 SRCS_FILES	= main.cpp
-SRCS_FILES	+= 
+SRCS_FILES	+= Harl.cpp
 SRCS		:= ${patsubst %, ${SRCS_DIR}%, ${SRCS_FILES}}
 
 O_DIR		= ./objs/
