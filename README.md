@@ -28,7 +28,7 @@ This module is designed to help you understand the memory allocation, reference,
 - [ex05](./CPP_01/ex05/)
 - [ex06](./CPP_01/ex06/)
 
-## CPP 02
+## CPP 02 | `in progress`
 
 This module is designed to help you understand Ad-hoc polymorphism, overloads and orthodox canonical classes in CPP.
 
