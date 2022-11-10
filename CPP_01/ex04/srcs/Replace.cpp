@@ -12,7 +12,10 @@
 
 #include "../inc/Replace.hpp"
 
-Replace::Replace( std::string filename ): _filename(filename) {};
+Replace::Replace( std::string filename ): _filename(filename) {
+	this->_s1 = "";
+	this->_s2 = "";
+};
 
 Replace::~Replace( void ) {};
 
@@ -50,5 +53,30 @@ void    Replace::_read( std::string s1, std::string s2 ) const {
 }
 
 void    Replace::replace( std::string s1, std::string s2 ) {
+	if (this->_filename.empty()) {
+		std::cout << "No filename given." << std::endl;
+		return ;
+	}
 	this->_read(s1, s2);
+}
+
+void    Replace::showDiff( void ) const {
+	std::ifstream ifs(this->_filename);
+	std::ifstream ifsReplace(this->_filename + ".replace");
+	if (ifsReplace.is_open()) {
+		// Initial file
+		if (ifs.is_open()) {
+			std::cout << ifs.rdbuf() << std::endl;
+			ifs.close();
+			std::cout << std::endl;
+		} else {
+			std::cout << "Unable to open [original file]" << std::endl;
+		}
+		// Replace file
+		std::cout << CYAN << std::endl;
+		std::cout << ifsReplace.rdbuf() << NC << std::endl;
+		ifsReplace.close();
+	} else {
+		std::cout << "Unable to open [file].replace or [file].replace doesn't exist." << std::endl;
+	}
 }

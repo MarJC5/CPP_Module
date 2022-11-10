@@ -42,7 +42,7 @@ RM			= rm -rf
 all: ${NAME}
 
 # Compile normal executable
-${NAME}: ${O_DIR}
+${NAME}: ${O_DIR} ${OBJS}
 	@${CC} ${CFLAGS} ${CPP_FLAGS} -o ${NAME} ${OBJS}
 	@echo "[$(ORANGE)$(NAME)$(RESET)] Creation *.o files & compilation : $(GREEN)OK$(RESET)"
 	@echo "[\033[1;32msuccess$(RESET)]: $(NAME) is ready"
