@@ -16,7 +16,7 @@ This first module of C++ is designed to help you understand the specifities of t
 - [ex01](./CPP_00/ex01/)
 - [ex02](./CPP_00/ex02/)
 
-## CPP 01 | `in progress`
+## CPP 01 | `100/100`
 
 This module is designed to help you understand the memory allocation, reference, pointers to members and the usage of the switch in CPP.
 
