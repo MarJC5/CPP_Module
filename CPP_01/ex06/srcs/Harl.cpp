@@ -42,29 +42,23 @@ void    Harl::_error( void ) {
 void    Harl::complain( std::string level ) {
 	std::string levels[4] = {"debug", "info", "warning", "error"};
 
-	void (Harl::*f[4])(void) = {
-		&Harl::_debug,
-		&Harl::_info,
-		&Harl::_warning,
-		&Harl::_error}; // array of pointers to member functions
-
 	for (std::string::size_type i = 0; i < level.length(); ++i)
 		level[i] = std::tolower(level[i]); // convert to lowercase
 
 	for (this->_index = 0; level != levels[this->_index]; ++this->_index);
 
 	switch (this->_index) {
+		case 0:
+			this->_debug();
+			break;
 		case 1:
-			(this->*f[0])();
+			this->_info();
 			break;
 		case 2:
-			(this->*f[1])();
+			this->_warning();
 			break;
 		case 3:
-			(this->*f[2])();
-			break;
-		case 4:
-			(this->*f[3])();
+			this->_error();
 			break;
 		default:
 			std::cout << "[Probably complaining about insignificant problem]" << std::endl;
