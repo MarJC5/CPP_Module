@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ClapTrap.hpp"
+#include "../inc/FragTrap.hpp"
 
 static void	tic_tac(int usleep_time, int duration)
 {
@@ -23,29 +23,36 @@ static void	tic_tac(int usleep_time, int duration)
 
 int main(void)
 {
-	ClapTrap	nameless;
-	tic_tac(500000, 1);
-
-	ClapTrap	one("Jotaro");
+	ScavTrap 	one("Jotaro");
 	tic_tac(500000, 1);
 
 	ClapTrap	two("polnareff");
 	tic_tac(500000, 1);
 
-	ClapTrap	duplicated(one);
+	FragTrap 	three("Josuke");
 	tic_tac(500000, 1);
 
-	while (one.getEnergyPoints() > 0)
-		one.attack("Dio");
+	while (three.getEnergyPoints() > 0)
+		three.attack("Dio");
 	tic_tac(500000, 2);
-	one.beRepaired(2);
+	three.beRepaired(2);
 	tic_tac(500000, 2);
-	one.takeDamage(two.getAttackDamage());
+	three.takeDamage(one.getAttackDamage());
+	tic_tac(500000, 2);
+	three.highFivesGuys();
 	tic_tac(500000, 2);
 
 	two.attack("Dio");
 	tic_tac(500000, 2);
-
 	two.beRepaired(2);
+	tic_tac(500000, 2);
+
+	one.attack("Dio");
+	tic_tac(500000, 2);
+	one.beRepaired(42);
+	tic_tac(500000, 2);
+	one.takeDamage(two.getAttackDamage());
+	tic_tac(500000, 2);
+	one.guardGate();
 	tic_tac(500000, 2);
 }

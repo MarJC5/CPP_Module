@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ClapTrap.hpp"
+#include "../inc/DiamondTrap.hpp"
 
 static void	tic_tac(int usleep_time, int duration)
 {
@@ -23,29 +23,22 @@ static void	tic_tac(int usleep_time, int duration)
 
 int main(void)
 {
-	ClapTrap	nameless;
+	DiamondTrap diamond("Giorno");
 	tic_tac(500000, 1);
 
-	ClapTrap	one("Jotaro");
-	tic_tac(500000, 1);
-
-	ClapTrap	two("polnareff");
-	tic_tac(500000, 1);
-
-	ClapTrap	duplicated(one);
-	tic_tac(500000, 1);
-
-	while (one.getEnergyPoints() > 0)
-		one.attack("Dio");
+	std::cout << "---------------" << std::endl;
+	std::cout << std::left << std::setw(15) << "Attack Damage" << ": " << diamond.getAttackDamage() << std::endl;
+	std::cout << std::left << std::setw(15) << "Energy" << ": " << diamond.getEnergyPoints() << std::endl;
+	std::cout << std::left << std::setw(15) << "Hit points" << ": " << diamond.getHitPoints() << std::endl;
+	std::cout << std::left << std::setw(15) << "---------------" << std::endl;
 	tic_tac(500000, 2);
-	one.beRepaired(2);
+	diamond.guardGate();
 	tic_tac(500000, 2);
-	one.takeDamage(two.getAttackDamage());
+	diamond.whoAmI();
 	tic_tac(500000, 2);
-
-	two.attack("Dio");
+	diamond.attack("Dio");
 	tic_tac(500000, 2);
-
-	two.beRepaired(2);
+	diamond.highFivesGuys();
 	tic_tac(500000, 2);
+	return (0);
 }

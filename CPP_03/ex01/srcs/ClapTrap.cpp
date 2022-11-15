@@ -74,6 +74,8 @@ void    ClapTrap::attack(std::string const &target) {
 	std::cout << this->getName()
 	          << " attacks "
 	          << target
+	          << ", causing "
+	          << this->getAttackDamage()
 	          << std::endl;
 }
 
@@ -169,3 +171,4 @@ void		ClapTrap::setEnergyPoints(unsigned int energyPoints) {
 void		ClapTrap::setAttackDamage(unsigned int attackDamage) {
 	this->_attackDamage = attackDamage;
 }
+
