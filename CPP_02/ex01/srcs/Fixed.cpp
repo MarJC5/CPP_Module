@@ -12,6 +12,7 @@
 
 #include "../inc/Fixed.hpp"
 
+/*** EX00 ***/
 Fixed::Fixed( void ) {
 	std::cout << "Fixed constructor called" << std::endl;
 	this->_value = 0;
@@ -31,10 +32,13 @@ Fixed &Fixed::operator=( Fixed const &rhs ) {
 	return *this; // return this.operator=(rhs);
 }
 
-int Fixed::getRawBits( void ) const {
+int     Fixed::getRawBits( void ) const {
 	return this->_value;
 }
 
 void    Fixed::setRawBits( int const raw ) {
 	this->_value = raw;
 }
+
+/*** EX01 ***/
+

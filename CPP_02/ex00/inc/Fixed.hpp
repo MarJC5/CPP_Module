@@ -14,9 +14,16 @@
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
+// Colors
+# define GREEN	"\033[0;32m"
+# define RED 	"\033[0;31m"
+# define ORANGE	"\033[0;33m"
+# define CYAN	"\033[0;36m"
+# define NC     "\033[0m"
+
+// Libs
 # include <iostream>
 # include <string>
-# include "Fixed.h"
 
 class Fixed
 {
@@ -34,7 +41,5 @@ class Fixed
 		int					_value;
 		static const int	_bits = 8;
 };
-
-std::ostream &operator << ( std::ostream &o, Fixed const &rhs );
 
 #endif
