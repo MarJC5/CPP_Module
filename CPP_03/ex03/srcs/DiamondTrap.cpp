@@ -16,27 +16,16 @@
  * CONSTRUCTORS / DESTRUCTORS
  */
 
-DiamondTrap::DiamondTrap(void): ClapTrap(), ScavTrap(), FragTrap()
-{
-	std::cout << "DiamondTrap default constructor called" << std::endl;
-	this->setName("DiamondTrap");
-	ClapTrap::setName(this->getName() + "_clap_name");
-	this->setHitPoints(FragTrap::hitPointsInit);
-	this->setEnergyPoints(ScavTrap::energyPointsInit);
-	this->setAttackDamage(FragTrap::attackDamageInit);
-	return ;
-}
-
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
 {
-	std::cout << "DiamondTrap "
-	          << name
-	          << " is created."
-	          << std::endl;
-	this->setName(name);
+	this->_name = name;
 	this->setHitPoints(FragTrap::hitPointsInit);
 	this->setEnergyPoints(ScavTrap::energyPointsInit);
 	this->setAttackDamage(FragTrap::attackDamageInit);
+	std::cout << "DiamondTrap "
+	          << this->getName()
+	          << " is created."
+	          << std::endl;
 	return ;
 }
 
@@ -81,9 +70,8 @@ void	DiamondTrap::attack(std::string const &target)
 }
 
 void	DiamondTrap::whoAmI(void) {
-	std::cout << "DiamondTrap "
-	          << this->getName()
-	          << " is a "
-	          << ClapTrap::getName()
-	          << std::endl;
+	std::cout << this->_name
+				<< " is a "
+				<< ClapTrap::getName()
+	            << std::endl;
 }

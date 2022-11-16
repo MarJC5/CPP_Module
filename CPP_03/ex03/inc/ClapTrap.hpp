@@ -52,7 +52,7 @@ class ClapTrap
 		int         energyCost( void );
 
 	protected:
-		std::string	_name;
+		std::string	_name; // Name of the ClapTrap instance
 		int			_hitPoints;
 		int			_energyPoints;
 		int			_attackDamage;

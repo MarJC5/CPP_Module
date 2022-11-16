@@ -21,7 +21,6 @@
 class DiamondTrap: public ScavTrap, public FragTrap // 2 parents
 {
 	public:
-		DiamondTrap(void);
 		DiamondTrap(std::string name);
 		DiamondTrap(DiamondTrap const &instance);
 		~DiamondTrap(void);
