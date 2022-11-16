@@ -30,7 +30,7 @@ int main(void)
 	std::cout << std::left << std::setw(15) << "Attack Damage" << ": " << diamond.getAttackDamage() << std::endl;
 	std::cout << std::left << std::setw(15) << "Energy" << ": " << diamond.getEnergyPoints() << std::endl;
 	std::cout << std::left << std::setw(15) << "Hit points" << ": " << diamond.getHitPoints() << std::endl;
-	std::cout << std::left << std::setw(15) << "---------------" << std::endl;
+	std::cout << "---------------" << std::endl;
 	tic_tac(500000, 2);
 	diamond.guardGate();
 	tic_tac(500000, 2);
