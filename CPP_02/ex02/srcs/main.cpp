@@ -24,22 +24,6 @@ static void	tic_tac(int usleep_time, int duration, std::string color)
 
 int main(void) {
 	{
-		Fixed a;
-		tic_tac(500000, 1, GREEN);
-		Fixed b(a);
-		tic_tac(500000, 1, GREEN);
-		Fixed c;
-		tic_tac(500000, 2, GREEN);
-
-		c = b;
-		std::cout << "a = " << a.getRawBits() << std::endl;
-		tic_tac(500000, 1, GREEN);
-		std::cout << "b = " << b.getRawBits() << std::endl;
-		tic_tac(500000, 1, GREEN);
-		std::cout << "c = " << c.getRawBits() << std::endl;
-		tic_tac(500000, 1, GREEN);
-	}
-	{
 		tic_tac(500000, 5, NC);
 		Fixed a;
 		tic_tac(500000, 1, RED);
@@ -107,6 +91,13 @@ int main(void) {
 					<< NC
 					<< " as float." << std::endl;
 		tic_tac(500000, 1, CYAN);
+	}
+	{
+		tic_tac(500000, 5, NC);
+		Fixed const a(42);
+		tic_tac(500000, 1, CYAN);
+		Fixed const b(10);
+		tic_tac(500000, 2, CYAN);
 	}
 	return (0);
 }

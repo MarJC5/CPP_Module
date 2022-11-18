@@ -11,9 +11,7 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "../inc/WrongAnimal.hpp"
-#include "../inc/WrongCat.hpp"
-#include "../inc/Animal.hpp"
+#include "../inc/AAnimal.hpp"
 #include "../inc/Dog.hpp"
 #include "../inc/Cat.hpp"
 
@@ -27,54 +25,34 @@ static void	tic_tac(int usleep_time, int duration, std::string color)
 }
 
 int main(void) {
-
 	{
-		const Animal *dog = new Dog();
+		// Heap allocation
+		const AAnimal *dog = new Dog();
 		tic_tac(500000, 1, GREEN);
-		const Animal *cat = new Cat();
+		dog->makeSound();
+		tic_tac(500000, 2, GREEN);
+		const AAnimal *cat = new Cat();
 		tic_tac(500000, 1, GREEN);
-		const Animal *animal = new Animal();
-		tic_tac(500000, 1, GREEN);
-
-		std::cout << "Type: " << dog->getType() << std::endl;
-		dog->makeSound(); //will output the cat sound!
+		cat->makeSound();
 		tic_tac(500000, 2, GREEN);
-
-		std::cout << "Type: " << cat->getType() << std::endl;
-		cat->makeSound(); //will output the dog sound!
-		tic_tac(500000, 2, GREEN);
-
-		std::cout << "Type: " << animal->getType() << std::endl;
-		animal->makeSound();
-		tic_tac(500000, 2, GREEN);
-
-
 		delete dog;
-		tic_tac(500000, 1, GREEN);
+		tic_tac(500000, 2, GREEN);
 		delete cat;
-		tic_tac(500000, 1, GREEN);
-		delete animal;
 	}
 	{
-		tic_tac(500000, 5, RED);
-		const WrongCat *cat = new WrongCat();
-		tic_tac(500000, 1, RED);
-		const WrongAnimal *animal = new WrongAnimal();
-		tic_tac(500000, 1, RED);
+		/*
+		 * Error: cannot instantiate abstract class 'Animal'
+		 * An instance of an abstract class cannot be created directly
+		 * it can only be created through a derived class ex: Animal *a = new Dog();
+		*/
 
-		std::cout << "Type: " << cat->getType() << std::endl;
-		cat->makeSound(); //will output the dog sound!
-		tic_tac(500000, 2, RED);
-
-		std::cout << "Type: " << animal->getType() << std::endl;
-		animal->makeSound();
-		tic_tac(500000, 2, RED);
-
-
-		delete cat;
-		tic_tac(500000, 1, RED);
-		delete animal;
+		/*
+			AAnimal *animal = new Animal();
+		    tic_tac(500000, 1, GREEN);
+			animal->makeSound();
+			tic_tac(500000, 2, RED);
+			delete animal;
+		*/
 	}
-
 	return (0);
 }

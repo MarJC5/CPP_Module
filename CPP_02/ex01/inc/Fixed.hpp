@@ -15,31 +15,39 @@
 # define FIXED_HPP
 
 // Colors
-# define GREEN	"\033[0;32m"
-# define RED 	"\033[0;31m"
-# define ORANGE	"\033[0;33m"
-# define CYAN	"\033[0;36m"
+# define GREEN	"\033[1;32m"
+# define RED 	"\033[1;31m"
+# define ORANGE	"\033[1;33m"
+# define CYAN	"\033[1;36m"
 # define NC     "\033[0m"
 
 // Libs
 # include <iostream>
 # include <string>
+# include <cmath>
 
 class Fixed
 {
 	public:
 		Fixed( void );
-		Fixed( Fixed const &instance ); // Copy constructor
+		Fixed(int const value); // constructor that takes an int as a parameter
+		Fixed(float const value); // constructor that takes a float as a parameter
+		Fixed( Fixed const &instance );
 		~Fixed( void );
 
-		Fixed &operator=( Fixed const &rhs ); // Assignation operator overload (can be a member function, but not a member)
+		Fixed &operator=( Fixed const &rhs );
 
-		int		getRawBits( void ) const; // Return the raw value of the fixed point value
-		void	setRawBits( int const raw ); // Set the raw value of the fixed point value
+		float   toFloat( void ) const;
+		int     toInt( void ) const;
+
+		int		getRawBits( void ) const;
+		void	setRawBits( int const raw );
 
 	private:
 		int					_value;
 		static const int	_bits = 8;
 };
+
+std::ostream &operator<<(std::ostream &o, Fixed const &rhs);
 
 #endif

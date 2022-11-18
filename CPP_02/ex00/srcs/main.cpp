@@ -12,15 +12,42 @@
 
 #include "../inc/Fixed.hpp"
 
+static void	tic_tac(int usleep_time, int duration, std::string color)
+{
+	for (int i = 0; i < duration; i++)
+	{
+		std::cout << color << "." << NC << std::endl;
+		usleep(usleep_time);
+	}
+}
+
 int main(void) {
 	Fixed a;
+	tic_tac(500000, 1, GREEN);
 	Fixed b(a);
+	tic_tac(500000, 1, GREEN);
 	Fixed c;
+	tic_tac(500000, 2, NC);
 
 	c = b;
-	std::cout << "a = " << a.getRawBits() << std::endl;
-	std::cout << "b = " << b.getRawBits() << std::endl;
-	std::cout << "c = " << c.getRawBits() << std::endl;
+	std::cout << "a = "
+				<< RED
+				<< a.getRawBits()
+				<< NC
+				<< std::endl;
+	tic_tac(500000, 1, RED);
+	std::cout << "b = "
+				<< CYAN
+				<< b.getRawBits()
+				<< NC
+				<< std::endl;
+	tic_tac(500000, 1, CYAN);
+	std::cout << "c = "
+				<< GREEN
+				<< c.getRawBits()
+				<< NC
+				<< std::endl;
+	tic_tac(500000, 1, GREEN);
 
 	return (0);
 }

@@ -16,9 +16,10 @@
  * CONSTRUCTORS / DESTRUCTORS
  */
 
-Dog::Dog(void) : Animal("Dog")
+Dog::Dog(void) : Animal()
 {
 	std::cout << "Dog constructor called" << std::endl;
+	this->setType("Dog");
 }
 
 Dog::Dog(Dog const &instance) : Animal(instance)

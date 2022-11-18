@@ -6,7 +6,7 @@
 #    By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 09:19:33 by jmartin           #+#    #+#              #
-#    Updated: 2022/11/08 15:19:52 by jmartin          ###   ########.fr        #
+#    Updated: 2022/11/08 15:22:11 by jmartin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,12 +20,12 @@ UP 		= \033[A
 CUT 	= \033[K
 
 # PROGRAM
-NAME		= ex00
+NAME		= ex02
 
 # FOLDERS & FILES
 SRCS_DIR	= ./srcs/
 SRCS_FILES	= main.cpp
-SRCS_FILES	+= Fixed.cpp
+SRCS_FILES	+= AAnimal.cpp Dog.cpp Cat.cpp Brain.cpp
 SRCS		:= ${patsubst %, ${SRCS_DIR}%, ${SRCS_FILES}}
 
 O_DIR		= ./objs/

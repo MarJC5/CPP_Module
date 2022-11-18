@@ -16,18 +16,12 @@
  * CONSTRUCTORS / DESTRUCTORS
  */
 
-Animal::Animal(void)
-{
-	std::cout << "Animal constructor called" << std::endl;
-	this->_type = "Animal";
-}
-
-Animal::Animal(std::string type) : _type(type)
+Animal::Animal(void) : _type()
 {
 	std::cout << "Animal constructor called" << std::endl;
 }
 
-Animal::Animal(Animal const &instance)
+Animal::Animal(Animal const &instance): _type(instance.getType())
 {
 	std::cout << "Animal copy constructor called" << std::endl;
 	*this = instance;
@@ -55,9 +49,14 @@ Animal	&Animal::operator=(Animal const &rhs)
  * GETTERS / SETTERS
  */
 
-std::string	Animal::getType(void) const
+const std::string	Animal::getType(void) const
 {
 	return (this->_type);
+}
+
+void	Animal::setType(const std::string &type)
+{
+	this->_type = type;
 }
 
 /******************************************************************************
@@ -66,5 +65,5 @@ std::string	Animal::getType(void) const
 
 void	Animal::makeSound(void) const
 {
-	std::cout << this->getType() << ": " << " can't make sound" << std::endl;
+	std::cout << "Can't make sound" << std::endl;
 }

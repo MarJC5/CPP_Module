@@ -16,9 +16,10 @@
  * CONSTRUCTORS / DESTRUCTORS
  */
 
-WrongCat::WrongCat(void) : WrongAnimal("WrongCat")
+WrongCat::WrongCat(void): WrongAnimal()
 {
 	std::cout << "WrongCat constructor called" << std::endl;
+	this->setType("WrongCat");
 }
 
 WrongCat::WrongCat(WrongCat const &instance) : WrongAnimal(instance)

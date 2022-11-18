@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,34 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Cat.hpp"
+#include "../inc/AAnimal.hpp"
 
 /******************************************************************************
  * CONSTRUCTORS / DESTRUCTORS
  */
 
-Cat::Cat(void): Animal()
+AAnimal::AAnimal(void) : _type()
 {
-	std::cout << "Cat constructor called" << std::endl;
-	this->setType("Cat");
+	std::cout << "Animal constructor called" << std::endl;
 }
 
-Cat::Cat(Cat const &instance) : Animal(instance)
+AAnimal::AAnimal(AAnimal const &instance): _type(instance.getType())
 {
-	std::cout << "Cat copy constructor called" << std::endl;
+	std::cout << "Animal copy constructor called" << std::endl;
 	*this = instance;
 }
 
-Cat::~Cat(void)
+AAnimal::~AAnimal(void)
 {
-	std::cout << "Cat destructor called" << std::endl;
+	std::cout << "Animal destructor called" << std::endl;
 }
 
 /******************************************************************************
  * OPERATORS
  */
 
-Cat	&Cat::operator=(Cat const &rhs) {
+AAnimal	&AAnimal::operator=(AAnimal const &rhs)
+{
 	if (&rhs != this) // self-assignment check expected
 	{
 		this->_type = rhs.getType();
@@ -46,10 +46,24 @@ Cat	&Cat::operator=(Cat const &rhs) {
 }
 
 /******************************************************************************
+ * GETTERS / SETTERS
+ */
+
+const std::string	AAnimal::getType(void) const
+{
+	return (this->_type);
+}
+
+void	AAnimal::setType(const std::string &type)
+{
+	this->_type = type;
+}
+
+/******************************************************************************
  * MEMBER FUNCTIONS
  */
 
-void	Cat::makeSound(void) const {
-	std::cout << this->_type << ": " << "Meow meow" << std::endl;
+void	AAnimal::makeSound(void) const
+{
+	std::cout << "Can't make sound" << std::endl;
 }
-

@@ -22,9 +22,9 @@ class Cat : public Animal
 		Cat(Cat const &instance);
 		virtual ~Cat(void); // virtual destructor to avoid memory leaks
 
-		Cat &	operator=(Cat const &rhs);
+		Cat &operator=(Cat const &rhs);
 
-		void	makeSound() const;
+		void	makeSound(void) const;
 };
 
 #endif

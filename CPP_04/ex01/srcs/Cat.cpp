@@ -16,12 +16,13 @@
  * CONSTRUCTORS / DESTRUCTORS
  */
 
-Cat::Cat(void) : Animal("Cat"), _brain(new Brain())
+Cat::Cat(void): Animal(), _brain(new Brain())
 {
 	std::cout << "Cat constructor called" << std::endl;
+	this->_type = "Cat";
 }
 
-Cat::Cat(Cat const &instance): Animal(instance)
+Cat::Cat(Cat const &instance) : Animal(instance), _brain(new Brain(*instance._brain)) // deep copy
 {
 	std::cout << "Cat copy constructor called" << std::endl;
 	*this = instance;
@@ -30,7 +31,7 @@ Cat::Cat(Cat const &instance): Animal(instance)
 Cat::~Cat(void)
 {
 	std::cout << "Cat destructor called" << std::endl;
-	delete this->_brain; // delete the brain of the cat when the cat is destroyed (to avoid memory leaks)
+	delete this->_brain; // delete the brain to avoid memory leaks when the cat is destroyed
 }
 
 /******************************************************************************
@@ -42,17 +43,9 @@ Cat	&Cat::operator=(Cat const &rhs) {
 	{
 		this->_type = rhs.getType();
 		delete this->_brain; // free memory for the brain before copying the brain of the rhs cat
-		this->_brain = new Brain(*rhs.getBrain()); // copy the brain of the rhs cat
+		this->_brain = new Brain(*rhs._brain); // copy the brain of the rhs cat
 	}
 	return (*this);
-}
-
-/******************************************************************************
- * GETTERS / SETTERS
- */
-
-Brain	*Cat::getBrain(void) const {
-	return (this->_brain);  // return the address of the brain
 }
 
 /******************************************************************************
@@ -63,3 +56,7 @@ void	Cat::makeSound(void) const {
 	std::cout << this->_type << ": " << "Meow meow" << std::endl;
 }
 
+
+Brain	*Cat::getBrain(void) const { // return a pointer to the brain of the cat
+	return (this->_brain);
+}

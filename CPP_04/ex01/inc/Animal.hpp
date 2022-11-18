@@ -22,24 +22,22 @@
 
 # include <iostream>
 # include <string>
-# include "Brain.hpp"
 
 class Animal
 {
 	public:
-		Animal(void);
-		Animal(std::string type);
-		Animal(Animal const &instance);
+		Animal(void); // Default constructor
+		Animal(Animal const &instance); // copy constructor to avoid shallow copy of pointers in derived classes
 		virtual ~Animal(void); // virtual destructor to avoid memory leaks
 
-		Animal &operator=(Animal const &rhs);
+		Animal &operator=(Animal const &rhs); // virtual assignment operator to avoid memory leaks
 
-		std::string     getType() const;
-		virtual void    makeSound() const; // virtual function to be able to override it in the derived classes
-		virtual Brain   *getBrain() const = 0; // pure virtual function to be able to override it in the derived classes
+		void			    setType(const std::string &type); // setter for type attribute
+		const std::string	getType(void) const; // const to avoid changing the value of the attribute
+		virtual void        makeSound(void) const; // virtual function to be able to override it in the derived classes
 
 	protected:
-		std::string _type;
+		std::string _type; // protected attribute to be able to access it in the derived classes
 };
 
 #endif

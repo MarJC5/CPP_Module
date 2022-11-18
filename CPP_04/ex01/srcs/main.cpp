@@ -14,7 +14,6 @@
 #include "../inc/Animal.hpp"
 #include "../inc/Dog.hpp"
 #include "../inc/Cat.hpp"
-#include "../inc/Brain.hpp"
 
 #define N 4
 
@@ -44,21 +43,21 @@ int main(void) {
 		Dog dog;
 		tic_tac(500000, 2, RED);
 		Cat cat;
+		tic_tac(500000, 2, RED);
+		Cat cat2(cat); // Copy constructor
 		tic_tac(500000, 5, RED);
 	}
 	{
 		// Array of pointers to Animal
 		Animal *animals[N];
-		for (int i = 0; i < N; i++)
-		{
+		for (int i = 0; i < N; i++) {
 			tic_tac(500000, 2, CYAN);
 			if (i % 2 == 0)
 				animals[i] = new Dog();
 			else
 				animals[i] = new Cat();
 		}
-		for (int i = 0; i < N; i++)
-		{
+		for (int i = 0; i < N; i++) {
 			tic_tac(500000, 2, CYAN);
 			animals[i]->makeSound();
 			tic_tac(500000, 2, CYAN);

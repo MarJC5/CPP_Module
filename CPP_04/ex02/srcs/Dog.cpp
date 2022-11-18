@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,37 +10,41 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Cat.hpp"
+#include "../inc/Dog.hpp"
 
 /******************************************************************************
  * CONSTRUCTORS / DESTRUCTORS
  */
 
-Cat::Cat(void): Animal()
+Dog::Dog(void) : AAnimal(), _brain(new Brain())
 {
-	std::cout << "Cat constructor called" << std::endl;
-	this->setType("Cat");
+	std::cout << "Dog constructor called" << std::endl;
+	this->_type = "Dog";
 }
 
-Cat::Cat(Cat const &instance) : Animal(instance)
+Dog::Dog(Dog const &instance) : AAnimal(instance), _brain(new Brain(*instance._brain)) // deep copy
 {
-	std::cout << "Cat copy constructor called" << std::endl;
+	std::cout << "Dog copy constructor called" << std::endl;
 	*this = instance;
 }
 
-Cat::~Cat(void)
+Dog::~Dog(void)
 {
-	std::cout << "Cat destructor called" << std::endl;
+	std::cout << "Dog destructor called" << std::endl;
+	delete this->_brain; // free the memory of the brain
 }
 
 /******************************************************************************
  * OPERATORS
  */
 
-Cat	&Cat::operator=(Cat const &rhs) {
+Dog	&Dog::operator=(Dog const &rhs)
+{
 	if (&rhs != this) // self-assignment check expected
 	{
 		this->_type = rhs.getType();
+		delete this->_brain; // free the memory of the brain
+		this->_brain = new Brain(*rhs._brain); // copy the brain of the instance
 	}
 	return (*this);
 }
@@ -49,7 +53,10 @@ Cat	&Cat::operator=(Cat const &rhs) {
  * MEMBER FUNCTIONS
  */
 
-void	Cat::makeSound(void) const {
-	std::cout << this->_type << ": " << "Meow meow" << std::endl;
+void	Dog::makeSound(void) const {
+	std::cout << this->_type << ": " << "Woof woof" << std::endl;
 }
 
+Brain	*Dog::getBrain(void) const { // return a pointer to the brain of the dog
+	return (this->_brain);
+}

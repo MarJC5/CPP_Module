@@ -14,6 +14,7 @@
 #define DOG_HPP
 
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class Dog : public Animal
 {
@@ -22,13 +23,13 @@ class Dog : public Animal
 		Dog(Dog const &instance);
 		virtual ~Dog(void); // virtual destructor to avoid memory leaks
 
-		Dog &	operator=(Dog const &rhs);
+		Dog &operator=(Dog const &rhs);
 
-		void	        makeSound() const;
-		virtual Brain	*getBrain() const;
+		void	makeSound(void) const;
+		Brain	*getBrain(void) const;
 
 	private:
-		Brain	*_brain;
+		Brain	*_brain; // Dog has a Brain (composition)
 };
 
 #endif

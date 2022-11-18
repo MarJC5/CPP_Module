@@ -12,24 +12,40 @@
 
 #include "../inc/Fixed.hpp"
 
+/******************************************************************************
+ * CONSTRUCTORS / DESTRUCTORS
+ */
+
+// Default constructor
 Fixed::Fixed( void ) {
 	std::cout << "Fixed constructor called" << std::endl;
 	this->_value = 0;
 }
 
+// Copy constructor
 Fixed::Fixed( Fixed const &instance ) {
 	std::cout << "Fixed copy constructor called" << std::endl;
-	*this = instance; // *this = instance.operator=(instance);
+	*this = instance;
 }
 
+// Destructor
 Fixed::~Fixed( void ) {
 	std::cout << "Fixed destructor called" << std::endl;
 }
 
+/******************************************************************************
+ * OPERATORS
+ */
+
+// Assignation operator
 Fixed &Fixed::operator=( Fixed const &rhs ) {
 	this->_value = rhs.getRawBits();
-	return *this; // return this.operator=(rhs);
+	return *this;
 }
+
+/******************************************************************************
+ * GETTERS / SETTERS
+ */
 
 int Fixed::getRawBits( void ) const {
 	return this->_value;

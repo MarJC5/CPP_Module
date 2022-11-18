@@ -16,12 +16,13 @@
  * CONSTRUCTORS / DESTRUCTORS
  */
 
-Dog::Dog(void) : Animal("Dog"), _brain(new Brain())
+Dog::Dog(void) : Animal(), _brain(new Brain())
 {
 	std::cout << "Dog constructor called" << std::endl;
+	this->_type = "Dog";
 }
 
-Dog::Dog(Dog const &instance) : Animal(instance)
+Dog::Dog(Dog const &instance) : Animal(instance), _brain(new Brain(*instance._brain)) // deep copy
 {
 	std::cout << "Dog copy constructor called" << std::endl;
 	*this = instance;
@@ -30,7 +31,7 @@ Dog::Dog(Dog const &instance) : Animal(instance)
 Dog::~Dog(void)
 {
 	std::cout << "Dog destructor called" << std::endl;
-	delete this->_brain; // free memory for the brain when the dog is destroyed (to avoid memory leaks)
+	delete this->_brain; // free the memory of the brain
 }
 
 /******************************************************************************
@@ -42,18 +43,10 @@ Dog	&Dog::operator=(Dog const &rhs)
 	if (&rhs != this) // self-assignment check expected
 	{
 		this->_type = rhs.getType();
-		delete this->_brain; // free memory for the brain before copying the brain of the rhs dog
-		this->_brain = new Brain(*rhs.getBrain()); // copy the brain of the rhs dog
+		delete this->_brain; // free the memory of the brain
+		this->_brain = new Brain(*rhs._brain); // copy the brain of the instance
 	}
 	return (*this);
-}
-
-/******************************************************************************
- * GETTERS / SETTERS
- */
-
-Brain	*Dog::getBrain(void) const {
-	return (this->_brain);  // return the address of the brain
 }
 
 /******************************************************************************
@@ -62,4 +55,8 @@ Brain	*Dog::getBrain(void) const {
 
 void	Dog::makeSound(void) const {
 	std::cout << this->_type << ": " << "Woof woof" << std::endl;
+}
+
+Brain	*Dog::getBrain(void) const { // return a pointer to the brain of the dog
+	return (this->_brain);
 }

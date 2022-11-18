@@ -16,6 +16,8 @@ RED 	= \033[0;31m
 ORANGE	= \033[0;33m
 CYAN	= \033[0;36m
 RESET	= \033[0m
+UP 		= \033[A
+CUT 	= \033[K
 
 # PROGRAM
 NAME		= 
@@ -52,6 +54,7 @@ ${O_DIR}:
 
 # Compile normals objects
 ${O_DIR}%.o: ${SRCS_DIR}%.cpp
+	@echo "[$(CYAN)Compiling$(RESET)]: $<$(UP)$(CUT)"
 	@${CC} ${CFLAGS} ${HEADS} -o $@ -c $<
 
 clean:
@@ -63,6 +66,9 @@ fclean:	clean
 	@echo "[$(ORANGE)$(NAME)$(RESET)] fclean: $(GREEN)OK$(RESET)"
 	@echo "[\033[1;32msuccess$(RESET)]: $(NAME) has been clean up"
 
+valgrind: all
+	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME)
+
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re valgrind

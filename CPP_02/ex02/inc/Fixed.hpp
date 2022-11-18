@@ -24,46 +24,61 @@
 // Libs
 # include <iostream>
 # include <string>
-# include <unistd.h>
+# include <cmath>
 
 class Fixed
 {
 	public:
 		Fixed( void );
-		/*
-		 * Copy constructor (constructor that takes an object of the same class as a parameter)
-		 * When shall we use it?
-		 * 1. When we want to create a new object based on an existing object of the same class
-		 * 2. When we want to pass an object of the class to a function by value
-		 * 3. When we want to return an object of the class from a function
-		 * 4. When we want to initialize an object of the class in the declaration
-		 */
+		Fixed(int const value);
+		Fixed(float const value);
 		Fixed( Fixed const &instance );
 		~Fixed( void );
 
-		/*
-		 *  The assignment operator is a member function
-		 *  that takes a reference to an object of the same class as a parameter
-		 *  and returns a reference to the current object
-		 *
-		 *  In summary, the assignment operator is used to assign
-		 *  a new value to an object that already exists
-		 */
 		Fixed &operator=( Fixed const &rhs );
+
+		Fixed &operator++( void ); // pre-increment
+		Fixed operator++( int ); // post-increment
+
+		Fixed &operator--( void ); // pre-decrement
+		Fixed operator--( int ); // post-decrement
+
+		/*
+		 * Wy const? because we don't want to modify
+		 * the object itself (only the value)
+		 */
+		Fixed operator+( Fixed const &rhs ) const;
+		Fixed operator-( Fixed const &rhs ) const;
+		Fixed operator*( Fixed const &rhs ) const;
+		Fixed operator/( Fixed const &rhs ) const;
+
+		bool operator>( Fixed const &rhs ) const; // greater than
+		bool operator<( Fixed const &rhs ) const; // less than
+		bool operator>=( Fixed const &rhs ) const; // greater than or equal to
+		bool operator<=( Fixed const &rhs ) const; // less than or equal to
+		bool operator==( Fixed const &rhs ) const; // equal to
+		bool operator!=( Fixed const &rhs ) const; // not equal to
+
+		float   toFloat( void ) const;
+		int     toInt( void ) const;
 
 		int		getRawBits( void ) const;
 		void	setRawBits( int const raw );
+
+		/*
+		 * why &? because we want to modify the object (static member)
+		 * and not a copy of it
+		 */
+		static  Fixed &min(Fixed &a, Fixed &b);
+		static  Fixed &max(Fixed &a, Fixed &b);
+		static  Fixed const &min(Fixed const &a, Fixed const &b);
+		static  Fixed const &max(Fixed const &a, Fixed const &b);
 
 	private:
 		int					_value;
 		static const int	_bits = 8;
 };
 
-/*
- * Non-member function overload (<<) to print the value of the Fixed point number (<< is the insertion operator)
- * We use a reference to a constant object of type Fixed to avoid modifying the object
- * and to avoid making a copy of the object
- */
 std::ostream &operator<<(std::ostream &o, Fixed const &rhs);
 
 #endif

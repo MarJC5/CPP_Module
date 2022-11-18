@@ -22,9 +22,12 @@ class Dog : public Animal
 		Dog(Dog const &instance);
 		virtual ~Dog(void); // virtual destructor to avoid memory leaks
 
-		Dog &	operator=(Dog const &rhs);
+		Dog &operator=(Dog const &rhs);
 
-		void	makeSound() const;
+		void	makeSound(void) const;
+
+	private:
+		Brain	*_brain; // Dog has a Brain (composition)
 };
 
 #endif
