@@ -24,80 +24,162 @@ static void	tic_tac(int usleep_time, int duration, std::string color)
 
 int main(void) {
 	{
+		Fixed const a(42);
+		Fixed const b(21);
+		Fixed c;
+
+		std::cout << "a = "
+					<< a
+					<< std::endl;
+		tic_tac(500000, 1, NC);
+		std::cout << "b = "
+					<< b
+					<< std::endl;
 		tic_tac(500000, 5, NC);
-		Fixed a;
+
+		// Greater than
+		std::cout << "a > b ? "
+					<< GREEN
+					<< (a > b)
+					<< NC
+					<< std::endl;
+		tic_tac(500000, 1, GREEN);
+		// Less than
+		std::cout << "a < b ? "
+					<< GREEN
+					<< (a < b)
+					<< NC
+					<< std::endl;
+		tic_tac(500000, 1, GREEN);
+		// Greater or equal
+		std::cout << "a >= b ? "
+					<< GREEN
+					<< (a >= b)
+					<< NC
+					<< std::endl;
+		tic_tac(500000, 1, GREEN);
+		// Less or equal
+		std::cout << "a <= b ? "
+					<< GREEN
+					<< (a <= b)
+					<< NC
+					<< std::endl;
+		tic_tac(500000, 1, GREEN);
+		// Equal
+		std::cout << "a == b ? "
+					<< GREEN
+					<< (a == b)
+					<< NC
+					<< std::endl;
+		tic_tac(500000, 1, GREEN);
+		// Not equal
+		std::cout << "a != b ? "
+					<< GREEN
+					<< (a != b)
+					<< NC
+					<< std::endl;
+		tic_tac(500000, 1, GREEN);
+
+		// Addition
+		std::cout << "a + b = "
+					<< RED
+					<< a + b
+					<< NC
+					<< std::endl;
 		tic_tac(500000, 1, RED);
-		Fixed const b(10); // value = 10 * 2^8 = 2560
+		// Substraction
+		std::cout << "a - b = "
+					<< RED
+					<< a - b
+					<< NC
+					<< std::endl;
 		tic_tac(500000, 1, RED);
-		Fixed const c(42.42f); // value = 42.42 * 2^8 = 10923.328 = 10923
+		// Multiplication
+		std::cout << "a * b = "
+					<< RED
+					<< a * b
+					<< NC
+					<< std::endl;
 		tic_tac(500000, 1, RED);
-		Fixed const d(b);
+		// Division
+		std::cout << "a / b = "
+					<< RED
+					<< a / b
+					<< NC
+					<< std::endl;
 		tic_tac(500000, 1, RED);
 
 		/*
-		 * Use the assignation operator to assign
-		 * a new value to the Fixed point number
+		 * why this increment value is + 0.00390625 and not 1 ?
+		 * because we have 8 bits for the fractional part and 8 bits for the integer part
+		 * so 2^8 = 256  1/256 = 0.00390625
+		 * we increment/decrement by 1/256 each time we call the operator ++ or --
 		 */
-		a = Fixed(1234.4321f); // value = 1234.4321 * 2^8 = 318906.88 = 318906
-		tic_tac(500000, 2, RED);
 
-		std::cout << "a is "
-					<< a << " and is "
-					<< RED
-					<< a.toInt()
+		// Increment
+		std::cout << "c = "
+		          << ORANGE
+		          << c
+		          << NC
+		          << std::endl;
+		++c;
+		std::cout << "++c = "
+		          << ORANGE
+		          << c
+		          << NC
+		          << std::endl;
+		tic_tac(500000, 1, ORANGE);
+		std::cout << "c = "
+		          << ORANGE
+		          << c
+		          << NC
+		          << std::endl;
+		c++;
+		std::cout << "c++ = "
+		          << ORANGE
+		          << c
+		          << NC
+		          << std::endl;
+		tic_tac(500000, 1, ORANGE);
+		// Decrement
+		std::cout << "c = "
+		          << ORANGE
+		          << c
+		          << NC
+		          << std::endl;
+		--c;
+		std::cout << "--c = "
+		          << ORANGE
+		          << c
+		          << NC
+		          << std::endl;
+		tic_tac(500000, 1, ORANGE);
+		std::cout << "c = "
+		          << ORANGE
+		          << c
+		          << NC
+		          << std::endl;
+		c--;
+		std::cout << "c-- = "
+					<< ORANGE
+					<< c
 					<< NC
-					<< " as int." << std::endl;
-		tic_tac(500000, 1, RED);
-		std::cout << "b is "
-					<< b << " and is "
-					<< RED
-					<< b.toInt()
-					<< NC
-					<< " as int." << std::endl;
-		tic_tac(500000, 1, RED);
-		std::cout << "c is "
-					<< c << " and is "
-					<< RED
-					<< c.toInt()
-					<< NC
-					<< " as int." << std::endl;
-		tic_tac(500000, 1, RED);
-		std::cout << "d is "
-					<< d << " and is "
-					<< RED
-					<< d.toInt()
-					<< NC
-					<< " as int." << std::endl;
-		tic_tac(500000, 1, RED);
-	}
-	{
-		tic_tac(500000, 5, NC);
-		Fixed const a(42); // value = 42 * 2^8 = 10752
-		tic_tac(500000, 1, CYAN);
-		Fixed const b(10); // value = 10 * 2^8 = 2560
-		tic_tac(500000, 2, CYAN);
+					<< std::endl;
+		tic_tac(500000, 1, ORANGE);
 
-		std::cout << "a is "
-					<< a << " and is "
+		// Max
+		std::cout << "max(a, b) = "
 					<< CYAN
-					<< a.toFloat()
+					<< Fixed::max(a, b)
 					<< NC
-					<< " as float." << std::endl;
+					<< std::endl;
 		tic_tac(500000, 1, CYAN);
-		std::cout << "b is "
-					<< b << " and is "
+		// Min
+		std::cout << "min(a, b) = "
 					<< CYAN
-					<< b.toFloat()
+					<< Fixed::min(a, b)
 					<< NC
-					<< " as float." << std::endl;
-		tic_tac(500000, 1, CYAN);
-	}
-	{
-		tic_tac(500000, 5, NC);
-		Fixed const a(42);
-		tic_tac(500000, 1, CYAN);
-		Fixed const b(10);
-		tic_tac(500000, 2, CYAN);
+					<< std::endl;
 	}
 	return (0);
 }

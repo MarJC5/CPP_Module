@@ -19,31 +19,27 @@
 
 // Default constructor
 Fixed::Fixed( void ) {
-	std::cout << "Fixed constructor called" << std::endl;
 	this->_value = 0;
 }
 
 // Using int constructor
 Fixed::Fixed( const int value ) {
-	std::cout << "Fixed constructor called" << std::endl;
 	this->_value = value << this->_bits;
 }
 
 // Using float constructor
 Fixed::Fixed( const float value ) {
-	std::cout << "Fixed constructor called" << std::endl;
 	this->_value = (int)(roundf(value * (1 << this->_bits)));
 }
 
 // Copy constructor
 Fixed::Fixed( Fixed const &instance ) {
-	std::cout << "Fixed copy constructor called" << std::endl;
 	*this = instance;
 }
 
 // Destructor
 Fixed::~Fixed( void ) {
-	std::cout << "Fixed destructor called" << std::endl;
+	return ;
 }
 
 /******************************************************************************
@@ -75,7 +71,7 @@ Fixed Fixed::operator/( Fixed const &rhs ) const {
 	return Fixed(this->toFloat() / rhs.toFloat());
 }
 
-// Increment operator
+// Increment operator (prefix)
 Fixed &Fixed::operator++( void ) {
 	this->_value++;
 	return *this;
@@ -87,7 +83,7 @@ Fixed Fixed::operator++( int ) {
 	return tmp;
 }
 
-// Decrement operator
+// Decrement operator (prefix)
 Fixed &Fixed::operator--( void ) {
 	this->_value--;
 	return *this;
@@ -119,7 +115,7 @@ Fixed const &Fixed::max( Fixed const &a, Fixed const &b ) {
 
 // << operator overload
 std::ostream &operator<<( std::ostream &o, Fixed const &rhs ) {
-	o << rhs.getRawBits();
+	o << rhs.toFloat();
 	return o;
 }
 
