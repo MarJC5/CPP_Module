@@ -18,6 +18,7 @@
 # define RED 	"\033[1;31m"
 # define ORANGE	"\033[1;33m"
 # define CYAN	"\033[1;36m"
+# define GREY   "\033[1;37m"
 # define NC     "\033[0m"
 
 # include <iostream>

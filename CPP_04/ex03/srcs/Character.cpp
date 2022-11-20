@@ -24,7 +24,12 @@ Character::Character(void): _name(), _inventory()
 
 Character::Character(std::string const & name) : _name(name), _inventory()
 {
-	std::cout << "Character " << name << " is alive" << std::endl;
+	std::cout << "Character "
+				<< GREY
+				<< name
+				<< NC
+				<< " is alive"
+				<< std::endl;
 	return ;
 }
 
@@ -43,7 +48,11 @@ Character::Character(Character const &instance) {
 }
 
 Character::~Character(void) {
-	std::cout << "Character " << this->getName() << " is dead." << std::endl;
+	std::cout << "Character "
+				<< GREY
+				<< this->getName()
+				<< NC
+				<< " is dead." << std::endl;
 	// Delete all the inventory items before leaving the destructor (if any)
 	for (int i = 0; i < 4; ++i) {
 		if (this->_inventory[i] != NULL) {
@@ -87,7 +96,7 @@ void Character::equip(AMateria* m) {
 		if (this->_inventory[i] == NULL) {
 			this->_inventory[i] = m;
 			std::cout << "Materia "
-						<< ORANGE
+						<< GREY
 						<< m->getType()
 						<< NC
 						<< " equipped"
@@ -100,7 +109,7 @@ void Character::equip(AMateria* m) {
 void Character::unequip(int idx) {
 	if (idx >= 0 && idx < 4) {
 		std::cout << "Unequipped slot "
-					<< ORANGE
+					<< GREY
 					<< this->_inventory[idx]->getType()
 					<< NC
 					<< std::endl;

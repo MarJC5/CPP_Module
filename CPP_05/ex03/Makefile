@@ -20,12 +20,12 @@ UP 		= \033[A
 CUT 	= \033[K
 
 # PROGRAM
-NAME		= 
+NAME		= ex03
 
 # FOLDERS & FILES
 SRCS_DIR	= ./srcs/
 SRCS_FILES	= main.cpp
-SRCS_FILES	+=
+SRCS_FILES	+= Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
 SRCS		:= ${patsubst %, ${SRCS_DIR}%, ${SRCS_FILES}}
 
 O_DIR		= ./objs/

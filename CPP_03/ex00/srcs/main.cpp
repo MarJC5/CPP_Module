@@ -16,7 +16,7 @@ static void	tic_tac(int usleep_time, int duration)
 {
 	for (int i = 0; i < duration; i++)
 	{
-		std::cout << "." << std::endl;
+		std::cout << "↓" << std::endl;
 		usleep(usleep_time);
 	}
 }
