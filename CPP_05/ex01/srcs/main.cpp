@@ -34,19 +34,28 @@ int main(void)
 	tic_tac(500000, 2, GREEN);
 
 	std::cout << GREEN << "Should work" << NC << std::endl;
-	Form Form1("Phantom Blood", 1, 1);
-	std::cout << Form1 << std::endl;
-	Form1.beSigned(Bureaucrat1); // Should work
-	std::cout << Form1 << std::endl;
+	try {
+		Form Form1("Phantom Blood", 1, 1);
+		std::cout << Form1 << std::endl;
+		Form1.beSigned(Bureaucrat1); // Should work
+		std::cout << Form1 << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
 	tic_tac(500000, 2, GREEN);
 
 	std::cout << GREEN << "Should work" << NC << std::endl;
-	Form Form2("Battle Tendency", 150, 150); // Both grade are correct
-	std::cout << Form2 << std::endl;
-	Form2.beSigned(Bureaucrat1);
-	std::cout << Form2 << std::endl;
-	Form2.beSigned(Bureaucrat2);
-	std::cout << Form2 << std::endl;
+	try {
+		Form Form2("Battle Tendency", 150, 150); // Both grade are correct
+		std::cout << Form2 << std::endl;
+		Form2.beSigned(Bureaucrat1);
+		std::cout << Form2 << std::endl;
+		Form2.beSigned(Bureaucrat2);
+		std::cout << Form2 << std::endl;
+	} catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
 	tic_tac(500000, 2, RED);
 
 	std::cout << RED << "Should throw two exception" << NC << std::endl;

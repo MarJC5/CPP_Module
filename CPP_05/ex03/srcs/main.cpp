@@ -47,10 +47,10 @@ int main(void)
 		rrf->beSigned(Bureaucrat1);
 		std::cout << *rrf << std::endl;
 		Bureaucrat1.executeForm(*rrf);
-		tic_tac(500000, 2, GREEN);
 	} catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
+	tic_tac(500000, 2, GREEN);
 
 	/* ShrubberyCreationForm */
 	try {
@@ -61,10 +61,10 @@ int main(void)
 		ppf->beSigned(Bureaucrat1);
 		std::cout << *ppf << std::endl;
 		Bureaucrat1.executeForm(*ppf);
-		tic_tac(500000, 2, GREEN);
 	} catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
+	tic_tac(500000, 2, GREEN);
 
 	/* PresidentialPardonForm */
 	try {
