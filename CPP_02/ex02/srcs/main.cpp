@@ -26,6 +26,7 @@ int main(void) {
 	{
 		Fixed const a(42);
 		Fixed const b(21);
+		Fixed const z(0);
 		Fixed c;
 
 		std::cout << "a = "
@@ -100,11 +101,21 @@ int main(void) {
 					<< a * b
 					<< NC
 					<< std::endl;
+		std::cout << "a * z = "
+		          << RED
+		          << a * z
+		          << NC
+		          << std::endl;
 		tic_tac(500000, 1, RED);
 		// Division
 		std::cout << "a / b = "
+		          << RED
+		          << a / b
+		          << NC
+		          << std::endl;
+		std::cout << "a / z = "
 					<< RED
-					<< a / b
+					<< a / z
 					<< NC
 					<< std::endl;
 		tic_tac(500000, 1, RED);
@@ -114,6 +125,7 @@ int main(void) {
 		 * because we have 8 bits for the fractional part and 8 bits for the integer part
 		 * so 2^8 = 256  1/256 = 0.00390625
 		 * we increment/decrement by 1/256 each time we call the operator ++ or --
+		 * so if we want to increment by 1 we have to call the operator 256 times
 		 */
 
 		// Increment

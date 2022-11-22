@@ -24,11 +24,13 @@ Fixed::Fixed( void ) {
 
 // Using int constructor
 Fixed::Fixed( const int value ) {
+	// bit shift left to get the value in the right position
 	this->_value = value << this->_bits;
 }
 
 // Using float constructor
 Fixed::Fixed( const float value ) {
+	// bit shift left value * 2^bits to get the value in the right position
 	this->_value = (int)(roundf(value * (1 << this->_bits)));
 }
 
@@ -63,11 +65,15 @@ Fixed Fixed::operator-( Fixed const &rhs ) const {
 
 // Multiplication operator
 Fixed Fixed::operator*( Fixed const &rhs ) const {
+	if (this->toFloat() == 0 || rhs.toFloat() == 0)
+		return Fixed(0);
 	return Fixed(this->toFloat() * rhs.toFloat());
 }
 
 // Division operator
 Fixed Fixed::operator/( Fixed const &rhs ) const {
+	if (rhs.toFloat() == 0)
+		return Fixed(0);
 	return Fixed(this->toFloat() / rhs.toFloat());
 }
 
@@ -170,26 +176,14 @@ void    Fixed::setRawBits( int const raw ) {
  */
 
 float	Fixed::toFloat( void ) const {
-	/*
-	 * we use the left shift operator to multiply by 2 to the power of _bits (here 8)
-	 * and we cast the result to float to avoid integer division
-	 *
-	 * 1.0f = 1.0 * 2^0
-	 * 0.5f = 1.0 * 2^-1
-	 * 0.25f = 1.0 * 2^-2
-	 * 0.125f = 1.0 * 2^-3
-	 * 0.0625f = 1.0 * 2^-4
-	 * ... etc
-	 */
+	if (this->_value == 0)
+		return 0;
 	return ((float)this->_value / (float)(1 << this->_bits));
 }
 
 int		Fixed::toInt( void ) const {
-	/*
-	 * 1 << this->_bits = 2 ^ this->_bits
-	 * bit shift right by 8 bits to get the integer part of the fixed point number
-	 * and then cast it to int to get rid of the fractional part
-	 */
+	if (this->_value == 0)
+		return 0;
 	return (this->_value >> this->_bits);
 }
 

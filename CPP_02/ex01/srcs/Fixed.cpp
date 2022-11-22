@@ -88,6 +88,8 @@ float	Fixed::toFloat( void ) const {
 	 * 0.0625f = 1.0 * 2^-4
 	 * ... etc
 	 */
+	if (this->_value == 0)
+		return 0;
 	return ((float)this->_value / (float)(1 << this->_bits));
 }
 
@@ -97,6 +99,8 @@ int		Fixed::toInt( void ) const {
 	 * bit shift right by 8 bits to get the integer part of the fixed point number
 	 * and then cast it to int to get rid of the fractional part
 	 */
+	if (this->_value == 0)
+		return 0;
 	return (this->_value >> this->_bits);
 }
 
