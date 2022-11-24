@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:22:08 by jmartin           #+#    #+#             */
-/*   Updated: 2022/11/08 15:22:08 by jmartin          ###   ########.fr       */
+/*   Updated: 2022/11/24 14:06:25 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ Cat::Cat(Cat const &instance) : AAnimal(instance), _brain(new Brain(*instance._b
 Cat::~Cat(void)
 {
 	std::cout << "Cat destructor called" << std::endl;
-	delete this->_brain; // delete the brain to avoid memory leaks when the cat is destroyed
+	if (this->_brain)
+		delete this->_brain; // delete the brain to avoid memory leaks when the cat is destroyed
 }
 
 /******************************************************************************
@@ -42,7 +43,8 @@ Cat	&Cat::operator=(Cat const &rhs) {
 	if (&rhs != this) // self-assignment check expected
 	{
 		this->_type = rhs.getType();
-		delete this->_brain; // free memory for the brain before copying the brain of the rhs cat
+		if (this->_brain)
+			delete this->_brain; // free memory for the brain before copying the brain of the rhs cat
 		this->_brain = new Brain(*rhs._brain); // copy the brain of the rhs cat
 	}
 	return (*this);

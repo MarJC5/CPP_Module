@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:22:08 by jmartin           #+#    #+#             */
-/*   Updated: 2022/11/08 15:22:08 by jmartin          ###   ########.fr       */
+/*   Updated: 2022/11/24 14:06:32 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ Dog::Dog(Dog const &instance) : AAnimal(instance), _brain(new Brain(*instance._b
 Dog::~Dog(void)
 {
 	std::cout << "Dog destructor called" << std::endl;
-	delete this->_brain; // free the memory of the brain
+	if (this->_brain)
+		delete this->_brain; // free the memory of the brain
 }
 
 /******************************************************************************
@@ -43,7 +44,8 @@ Dog	&Dog::operator=(Dog const &rhs)
 	if (&rhs != this) // self-assignment check expected
 	{
 		this->_type = rhs.getType();
-		delete this->_brain; // free the memory of the brain
+		if (this->_brain)
+			delete this->_brain; // free the memory of the brain
 		this->_brain = new Brain(*rhs._brain); // copy the brain of the instance
 	}
 	return (*this);

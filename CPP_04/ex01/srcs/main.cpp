@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:22:08 by jmartin           #+#    #+#             */
-/*   Updated: 2022/11/08 15:22:08 by jmartin          ###   ########.fr       */
+/*   Updated: 2022/11/24 14:05:02 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,15 @@ int main(void) {
 			tic_tac(500000, 2, CYAN);
 			delete animals[i];
 		}
+		tic_tac(500000, 2, ORANGE);
+	}
+	{
+		Dog basic;
+		tic_tac(500000, 2, ORANGE);
+		{  
+			Dog tmp = basic ;
+		}
+		tic_tac(500000, 2, ORANGE);
 	}
 	return (0);
 }

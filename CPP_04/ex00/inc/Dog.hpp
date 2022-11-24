@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:22:08 by jmartin           #+#    #+#             */
-/*   Updated: 2022/11/08 15:22:08 by jmartin          ###   ########.fr       */
+/*   Updated: 2022/11/24 12:02:54 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ class Dog : public Animal
 		Dog &operator=(Dog const &rhs);
 
 		void	makeSound(void) const;
-
-	private:
-		Brain	*_brain; // Dog has a Brain (composition)
 };
 
 #endif

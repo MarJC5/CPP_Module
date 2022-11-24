@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:22:08 by jmartin           #+#    #+#             */
-/*   Updated: 2022/11/08 15:22:08 by jmartin          ###   ########.fr       */
+/*   Updated: 2022/11/24 13:56:58 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ class Brain
 	private:
 		std::string	        _ideas[100];
 };
+
 
 #endif
