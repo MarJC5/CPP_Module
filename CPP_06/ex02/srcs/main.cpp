@@ -100,8 +100,8 @@ int main(void)
 	{
 		Base *base = generate();
 		Base &ref = *base;
-		identify(base); // will return null if not A, B or C
-		identify(ref); // will throw exception if not A, B or C (because of dynamic_cast)
+		identify(base);
+		identify(ref);
 		delete base;
 	}
 	return (0);
