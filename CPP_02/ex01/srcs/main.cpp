@@ -25,36 +25,16 @@ static void	tic_tac(int usleep_time, int duration, std::string color)
 int main(void) {
 	{
 		Fixed a;
-		tic_tac(500000, 1, GREEN);
-		Fixed b(a);
-		tic_tac(500000, 1, GREEN);
-		Fixed c;
-		tic_tac(500000, 2, GREEN);
-
-		c = b;
-		std::cout << "a = " << a.getRawBits() << std::endl;
-		tic_tac(500000, 1, GREEN);
-		std::cout << "b = " << b.getRawBits() << std::endl;
-		tic_tac(500000, 1, GREEN);
-		std::cout << "c = " << c.getRawBits() << std::endl;
-		tic_tac(500000, 1, GREEN);
-	}
-	{
-		tic_tac(500000, 5, NC);
-		Fixed a;
-		tic_tac(500000, 1, RED);
-		Fixed const b(10); // value = 10 * 2^8 = 2560
-		tic_tac(500000, 1, RED);
-		Fixed const c(42.42f); // value = 42.42 * 2^8 = 10923.328 = 10923
-		tic_tac(500000, 1, RED);
+		Fixed const b(10.10f); // value = 10 * 2^8
+		Fixed const c(42.42f); // value = 42.42 * 2^8
 		Fixed const d(b);
-		tic_tac(500000, 1, RED);
 
 		/*
 		 * Use the assignation operator to assign
 		 * a new value to the Fixed point number
 		 */
-		a = Fixed(1234.4321f); // value = 1234.4321 * 2^8 = 318906.88 = 318906
+		a = Fixed(1234.4321f); // value = 1234.4321 * 2^8
+		std::cout << RED << "Fixed int" << NC << std::endl;
 		tic_tac(500000, 2, RED);
 
 		std::cout << "a is "
@@ -87,10 +67,11 @@ int main(void) {
 		tic_tac(500000, 1, RED);
 	}
 	{
-		tic_tac(500000, 5, NC);
-		Fixed const a(42); // value = 42 * 2^8 = 10752
-		tic_tac(500000, 1, CYAN);
-		Fixed const b(10); // value = 10 * 2^8 = 2560
+		tic_tac(500000, 2, NC);
+		Fixed const a(42.42f); // value = 42 * 2^8
+		Fixed const b(10.10f); // value = 10 * 2^8
+
+		std::cout << CYAN << "Fixed float" << NC << std::endl;
 		tic_tac(500000, 2, CYAN);
 
 		std::cout << "a is "
@@ -100,7 +81,7 @@ int main(void) {
 					<< NC
 					<< " as float." << std::endl;
 		tic_tac(500000, 1, CYAN);
-		std::cout << "b is "
+		std::cout << "b raw is "
 					<< b << " and is "
 					<< CYAN
 					<< b.toFloat()

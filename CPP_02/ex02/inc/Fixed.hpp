@@ -33,7 +33,7 @@ class Fixed
 		Fixed(int const value);
 		Fixed(float const value);
 		Fixed( Fixed const &instance );
-		~Fixed( void );
+		virtual ~Fixed( void );
 
 		Fixed &operator=( Fixed const &rhs );
 

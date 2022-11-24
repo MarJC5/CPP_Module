@@ -39,7 +39,8 @@ Fixed::~Fixed( void ) {
 
 // Assignation operator
 Fixed &Fixed::operator=( Fixed const &rhs ) {
-	this->_value = rhs.getRawBits();
+	if (this != &rhs)
+		this->_value = rhs.getRawBits();
 	return *this;
 }
 

@@ -33,7 +33,7 @@ class Fixed
 		Fixed(int const value); // constructor that takes an int as a parameter
 		Fixed(float const value); // constructor that takes a float as a parameter
 		Fixed( Fixed const &instance );
-		~Fixed( void );
+		virtual ~Fixed( void );
 
 		Fixed &operator=( Fixed const &rhs );
 

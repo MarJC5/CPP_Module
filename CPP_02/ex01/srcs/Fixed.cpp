@@ -60,7 +60,7 @@ Fixed &Fixed::operator=( Fixed const &rhs ) {
  */
 
 int     Fixed::getRawBits( void ) const {
-	return this->_value;
+	return this->_value; // return the raw value of the fixed point value
 }
 
 void    Fixed::setRawBits( int const raw ) {
