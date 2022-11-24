@@ -28,7 +28,7 @@ This module is designed to help you understand the memory allocation, reference,
 - [ex05](./CPP_01/ex05/)
 - [ex06](./CPP_01/ex06/)
 
-## CPP 02 | `in progress`
+## CPP 02 | `80/100`
 
 This module is designed to help you understand Ad-hoc polymorphism, overloads and orthodox canonical classes in CPP.
 
@@ -37,7 +37,7 @@ This module is designed to help you understand Ad-hoc polymorphism, overloads an
 - [ex02](./CPP_02/ex02/)
 - [ex03](./CPP_02/ex03/)
 
-## CPP 03
+## CPP 03 | `100/100`
 
 This module is designed to help you understand Inheritance in CPP.
 
@@ -46,7 +46,7 @@ This module is designed to help you understand Inheritance in CPP.
 - [ex02](./CPP_03/ex02/)
 - [ex03](./CPP_03/ex03/)
 
-## CPP 04
+## CPP 04 | `100/100`
 
 This module is designed to help you understand Subtype polymorphism, abstract classes and interfaces in CPP.
 
