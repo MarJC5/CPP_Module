@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:22:42 by jmartin           #+#    #+#             */
-/*   Updated: 2022/11/08 15:22:42 by jmartin          ###   ########.fr       */
+/*   Updated: 2022/11/24 09:46:23 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,14 @@ void    identify(Base* p)
 {
 	std::cout << "Identify by pointer: \n" << GREEN;
 
-	if (dynamic_cast<A*>(p))
-		std::cout << "A" << std::endl;
-	else if (dynamic_cast<B*>(p))
-		std::cout << "B" << std::endl;
-	else if (dynamic_cast<C*>(p))
-		std::cout << "C" << std::endl;
-	std::cout << NC << std::endl;
+	if (dynamic_cast<A*>(p) != NULL)
+		std::cout << "A" << NC << std::endl;
+	else if (dynamic_cast<B*>(p) != NULL)
+		std::cout << "B" << NC << std::endl;
+	else if (dynamic_cast<C*>(p) != NULL)
+		std::cout << "C" << NC << std::endl;
+	else
+		std::cerr << RED << "Error type" << NC << std::endl;
 }
 
 /*
@@ -72,7 +73,7 @@ void    identify(Base& p)
 		std::cout << GREEN << "A" << NC << std::endl;
 	}
 	catch (std::exception &e) {
-		std::cout << RED << "A" << NC << std::endl;
+		std::cerr << RED << "A" << NC << std::endl;
 	}
 
 	try {
@@ -81,7 +82,7 @@ void    identify(Base& p)
 		std::cout << GREEN << "B" << NC << std::endl;
 	}
 	catch (std::exception &e) {
-		std::cout << RED << "B" << NC << std::endl;
+		std::cerr << RED << "B" << NC << std::endl;
 	}
 
 	try {
@@ -90,7 +91,7 @@ void    identify(Base& p)
 		std::cout << GREEN << "C" << NC << std::endl;
 	}
 	catch (std::exception &e) {
-		std::cout << RED << "C" << NC << std::endl;
+		std::cerr << RED << "C" << NC << std::endl;
 	}
 }
 

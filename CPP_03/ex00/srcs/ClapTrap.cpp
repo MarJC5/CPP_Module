@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:21:31 by jmartin           #+#    #+#             */
-/*   Updated: 2022/11/08 15:21:32 by jmartin          ###   ########.fr       */
+/*   Updated: 2022/11/24 10:29:57 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void    ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void    ClapTrap::beRepaired(unsigned int amount) {
-	if (energyCost() == 0) {
+	if (this->getEnergyPoints() == 0) {
 		std::cout << this->getName()
 		          << " has no energy left."
 		          << std::endl;
@@ -116,6 +116,7 @@ void    ClapTrap::beRepaired(unsigned int amount) {
 		          << std::endl;
 		return ;
 	}
+	energyCost();
 	this->setHitPoints(this->getHitPoints() + amount);
 	std::cout << this->getName()
 	          << " is repaired by "

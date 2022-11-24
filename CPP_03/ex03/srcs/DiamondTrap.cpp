@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:21:56 by jmartin           #+#    #+#             */
-/*   Updated: 2022/11/08 15:21:56 by jmartin          ###   ########.fr       */
+/*   Updated: 2022/11/24 10:41:31 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
  * CONSTRUCTORS / DESTRUCTORS
  */
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
+DiamondTrap::DiamondTrap(std::string name) : ScavTrap(name), FragTrap(name)
 {
 	this->_name = name;
+	this->ClapTrap::_name = name + "_clap_name";
 	this->setHitPoints(FragTrap::hitPointsInit);
 	this->setEnergyPoints(ScavTrap::energyPointsInit);
 	this->setAttackDamage(FragTrap::attackDamageInit);
@@ -29,7 +30,7 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), Scav
 	return ;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap const &instance) : ClapTrap(instance), ScavTrap(instance), FragTrap(instance)
+DiamondTrap::DiamondTrap(DiamondTrap const &instance) : ScavTrap(instance), FragTrap(instance)
 {
 	this->setName(instance.getName());
 	std::cout << "DiamondTrap"
