@@ -6,20 +6,21 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:22:42 by jmartin           #+#    #+#             */
-/*   Updated: 2022/11/08 15:22:42 by jmartin          ###   ########.fr       */
+/*   Updated: 2022/11/25 19:36:40 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCALARTYPES_HPP
 # define SCALARTYPES_HPP
 
-# define NaN
+# define IS_NAN 1
+# define IS_INT 2
+# define IS_CHAR 3
+# define IS_FLOAT 4
 
 # include <iostream>
 # include <string>
 # include <iomanip>
-# include <limits>
-# include <exception>
 
 class ScalarTypes
 {
@@ -47,44 +48,20 @@ class ScalarTypes
 		float		getFloat(void) const;
 		double		getDouble(void) const;
 
-		class ImpossibleException: public std::exception
-		{
-			public:
-				virtual const char* what() const throw() {
-					return ("impossible");
-				}
-		};
-
-		class NonDisplayableException: public std::exception
-		{
-			public:
-				virtual const char* what() const throw() {
-					return ("Non displayable");
-				}
-		};
-
-		class NanException: public std::exception
-		{
-			public:
-				virtual const char* what() const throw() {
-					return ("nan");
-				};
-		};
-
-		class NanfException: public std::exception
-	{
-		public:
-		virtual const char* what() const throw() {
-			return ("nanf");
-		};
-	};
-
 	private:
 		std::string _str;
+		int			_type;
+
 		int		    _int;
 		char	    _char;
 		float	    _float;
 		double	    _double;
+
+		bool		_isInt(void);
+		bool		_isChar(void);
+		bool		_isFloat(void);
+		bool		_isDouble(void);
+		bool		_isNanInf(void);
 };
 
 #endif

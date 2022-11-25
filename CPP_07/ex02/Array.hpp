@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:24:29 by jmartin           #+#    #+#             */
-/*   Updated: 2022/11/08 15:24:30 by jmartin          ###   ########.fr       */
+/*   Updated: 2022/11/25 19:37:54 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,5 @@ Array<T>::Array(unsigned int n) : _array(new T[n]), _size(n)
 {
 	return ;
 }
-
-template <typename T>
-
 
 #endif
