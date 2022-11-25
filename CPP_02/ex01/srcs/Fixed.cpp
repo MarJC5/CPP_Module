@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:19:32 by jmartin           #+#    #+#             */
-/*   Updated: 2022/11/08 15:19:33 by jmartin          ###   ########.fr       */
+/*   Updated: 2022/11/25 09:21:26 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void    Fixed::setRawBits( int const raw ) {
  */
 
 std::ostream &operator<<( std::ostream &o, Fixed const &rhs ) { // << operator overload
-	o << rhs.getRawBits();
+	o << rhs.toFloat();
 	return o;
 }
 

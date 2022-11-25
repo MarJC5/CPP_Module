@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:22:40 by jmartin           #+#    #+#             */
-/*   Updated: 2022/11/08 15:22:40 by jmartin          ###   ########.fr       */
+/*   Updated: 2022/11/25 09:42:36 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@
 # include <iostream>
 # include <string>
 # include <exception>
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -37,6 +40,7 @@ class Bureaucrat
 		int					getGrade(void) const;
 		void				incrementGrade(void);
 		void				decrementGrade(void);
+		void				signForm(Form &form);
 
 		/*
 		 * Exceptions classes are nested in the class that will throw them.

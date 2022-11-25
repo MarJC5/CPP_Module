@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:22:42 by jmartin           #+#    #+#             */
-/*   Updated: 2022/11/08 15:22:42 by jmartin          ###   ########.fr       */
+/*   Updated: 2022/11/25 10:45:29 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int main(void)
 		rrf = someRandomIntern.makeForm("robotomy request", "Gin");
 		std::cout << *rrf << std::endl;
 		tic_tac(500000, 2, GREEN);
-		rrf->beSigned(Bureaucrat1);
+		Bureaucrat1.signForm(*rrf);
 		std::cout << *rrf << std::endl;
 		Bureaucrat1.executeForm(*rrf);
 	} catch (std::exception &e) {
@@ -58,7 +58,7 @@ int main(void)
 		ppf = someRandomIntern.makeForm("presidential pardon", "Kilua");
 		std::cout << *ppf << std::endl;
 		tic_tac(500000, 2, GREEN);
-		ppf->beSigned(Bureaucrat1);
+		Bureaucrat1.signForm(*ppf);
 		std::cout << *ppf << std::endl;
 		Bureaucrat1.executeForm(*ppf);
 	} catch (std::exception &e) {
@@ -72,7 +72,7 @@ int main(void)
 		scf = someRandomIntern.makeForm("shrubbery creation", "Gon");
 		std::cout << *scf << std::endl;
 		tic_tac(500000, 2, GREEN);
-		scf->beSigned(Bureaucrat1);
+		Bureaucrat1.signForm(*scf);
 		std::cout << *scf << std::endl;
 		Bureaucrat1.executeForm(*scf);
 	} catch (std::exception &e) {
@@ -86,7 +86,7 @@ int main(void)
 		fail = someRandomIntern.makeForm("fake form", "Kurapika");
 		std::cout << *fail << std::endl;
 		tic_tac(500000, 2, RED);
-		fail->beSigned(Bureaucrat1);
+		Bureaucrat1.signForm(*fail);
 		std::cout << *fail << std::endl;
 		Bureaucrat1.executeForm(*fail);
 	} catch (std::exception &e) {

@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:22:35 by jmartin           #+#    #+#             */
-/*   Updated: 2022/11/08 15:22:36 by jmartin          ###   ########.fr       */
+/*   Updated: 2022/11/25 10:16:04 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,31 @@ void	Bureaucrat::decrementGrade(void)
 		throw Bureaucrat::GradeTooLowException();
 	else
 		this->_grade++;
+	return ;
+}
+
+void		Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+	}
+	catch(std::exception &e)
+	{
+		std::cerr << this->_name
+					<< " cannot sign "
+					<< form.getName()
+					<< " because "
+					<< GREY
+					<< e.what()
+					<< NC
+					<< std::endl;
+		return ;
+	}
+	std::cout << this->_name
+				<< " signs "
+				<< form.getName()
+				<< std::endl;
 	return ;
 }
 

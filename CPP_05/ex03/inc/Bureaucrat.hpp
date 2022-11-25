@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:22:40 by jmartin           #+#    #+#             */
-/*   Updated: 2022/11/08 15:22:40 by jmartin          ###   ########.fr       */
+/*   Updated: 2022/11/25 10:41:09 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ class Bureaucrat
 		int					getGrade(void) const;
 		void				incrementGrade(void);
 		void				decrementGrade(void);
+		void				signForm(AForm &form);
 		void                executeForm(AForm const &form);
 
 		// Exceptions

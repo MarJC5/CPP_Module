@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:22:53 by jmartin           #+#    #+#             */
-/*   Updated: 2022/11/08 15:22:53 by jmartin          ###   ########.fr       */
+/*   Updated: 2022/11/25 10:01:34 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include <exception>
 # include "Bureaucrat.hpp"
 
 class Bureaucrat; // Forward declaration of Bureaucrat class to avoid circular dependency

@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:22:42 by jmartin           #+#    #+#             */
-/*   Updated: 2022/11/08 15:22:42 by jmartin          ###   ########.fr       */
+/*   Updated: 2022/11/25 10:20:09 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,57 +25,59 @@ static void	tic_tac(int usleep_time, int duration, std::string color)
 
 int main(void)
 {
-	Bureaucrat Bureaucrat1("Jonathan", 1);
-	std::cout << Bureaucrat1 << std::endl;
-	tic_tac(500000, 2, GREEN);
+	{
+		std::cout << GREEN << "Should work" << NC << std::endl;
+		Bureaucrat Bureaucrat1("Jonathan", 1);
+		std::cout << Bureaucrat1 << std::endl;
+		tic_tac(500000, 2, GREEN);
+		
+		try // Try to create the form
+		{
+			Form Form4("Battle Tendency", 1, 1);
+			std::cout << Form4 << std::endl;
 
-	Bureaucrat Bureaucrat2("Joseph", 150);
-	std::cout << Bureaucrat2 << std::endl;
-	tic_tac(500000, 2, GREEN);
+			try // Try to signe the form
+			{
+				Bureaucrat1.signForm(Form4); // Should work
+			}
+			catch(const std::exception& e)
+			{
+				std::cerr << e.what() << std::endl; // Error if form cannot be signed
+			}
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl; // Error if form cannot be created du to wrong grade
+		}
+	}
+	
+	tic_tac(500000, 2, NC);
 
-	std::cout << GREEN << "Should work" << NC << std::endl;
-	try {
-		Form Form1("Phantom Blood", 1, 1);
-		std::cout << Form1 << std::endl;
-		Form1.beSigned(Bureaucrat1); // Should work
-		std::cout << Form1 << std::endl;
-	}
-	catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
-	tic_tac(500000, 2, GREEN);
+	{
+		std::cout << RED << "Should throw exception" << NC << std::endl;
+		Bureaucrat Bureaucrat1("Josuke", 150);
+		std::cout << Bureaucrat1 << std::endl;
+		tic_tac(500000, 2, RED);
+		
+		try // Try to create the form
+		{
+			Form Form4("Diamond is Unbreakable", 1, 1);
+			std::cout << Form4 << std::endl;
 
-	std::cout << GREEN << "Should work" << NC << std::endl;
-	try {
-		Form Form2("Battle Tendency", 150, 150); // Both grade are correct
-		std::cout << Form2 << std::endl;
-		Form2.beSigned(Bureaucrat1);
-		std::cout << Form2 << std::endl;
-		Form2.beSigned(Bureaucrat2);
-		std::cout << Form2 << std::endl;
-	} catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
+			try // Try to signe the form
+			{
+				Bureaucrat1.signForm(Form4); // Should throw an exception as it is out of range
+			}
+			catch(const std::exception& e)
+			{
+				std::cerr << e.what() << std::endl; // Error if form cannot be signed
+			}
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl; // Error if form cannot be created du to wrong grade
+		}
 	}
-	tic_tac(500000, 2, RED);
 
-	std::cout << RED << "Should throw two exception" << NC << std::endl;
-	try {
-		Form Form3("Stardust Crusaders", 0, 0); // Both grade are incorrect (0 is too high)
-		std::cout << Form3 << std::endl;
-		Form3.beSigned(Bureaucrat2); // Should throw an exception as it is out of range
-	} catch (std::exception &e) {
-		std::cerr << e.what() << "\n";
-	}
-	tic_tac(500000, 2, RED);
-
-	std::cout << RED << "Should throw an exception" << NC << std::endl;
-	try {
-		Form Form4("Diamond is Unbreakable", 151, 151);
-		std::cout << Form4 << std::endl;
-		Form4.beSigned(Bureaucrat1); // Should throw an exception as it is out of range
-	} catch (std::exception &e) {
-		std::cerr << e.what() << "\n";
-	}
-	tic_tac(500000, 2, GREEN);
 	return (0);
 }

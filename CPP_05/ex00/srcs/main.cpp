@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:22:42 by jmartin           #+#    #+#             */
-/*   Updated: 2022/11/08 15:22:42 by jmartin          ###   ########.fr       */
+/*   Updated: 2022/11/25 09:28:24 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,22 @@ int main(void)
 	} catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
+
+	Bureaucrat Bureaucrat3("Josuke", 10);
+	try {
+		std::cout << Bureaucrat3 << std::endl;
+		tic_tac(500000, 2, RED);
+		std::cout << GREEN << "Incremente Grade" << NC << std::endl;
+		Bureaucrat3.incrementGrade();
+		std::cout << Bureaucrat3 << std::endl;
+		tic_tac(500000, 2, GREEN);
+		std::cout << GREEN << "Success: Decremente Grade" << NC << std::endl;
+		Bureaucrat3.decrementGrade(); // Should work
+		std::cout << Bureaucrat3 << std::endl;
+	} catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
+	tic_tac(500000, 2, GREEN);
 
 	return (0);
 }
