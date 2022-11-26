@@ -20,9 +20,10 @@ int main(int argc, char **argv)
 		std::cout << "Usage: ./convert [args]" << std::endl;
 		return (1);
 	}
-	ScalarTypes	convert(argv[1]);
 	try {
-		convert.display();
+		std::string str(argv[1]);
+		ScalarTypes	value(argv[1]);
+		value.display();
 	}
 	catch (std::exception &e) {
 		std::cout << e.what() << std::endl;

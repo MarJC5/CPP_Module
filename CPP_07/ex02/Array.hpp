@@ -14,17 +14,21 @@
 # define ARRAY_HPP
 
 # include <iostream>
+# include <exception>
 
 template <typename T>
 class Array
 {
 	public:
-		Array<T>(void);
+		Array<T>(void); // empty array
 		Array<T>(unsigned int n);
-		Array<T>(Array<T> const & src);
+		Array<T>(Array<T> const &src); // copy
 		~Array<T>(void);
+
 		Array<T> &	operator=(Array<T> const & rhs);
+
 		T &	operator[](unsigned int i);
+
 		unsigned int	size(void) const;
 
 	private:
@@ -32,16 +36,18 @@ class Array
 		unsigned int	_size;
 };
 
+/*
+ * Array constructor with no arguments create empty array
+ */
 template <typename T>
-Array<T>::Array(void) : _array(new T[0]), _size(0)
-{
-	return ;
-}
 
+
+/*
+ * Construction with an unsigned int n as a parameter:
+ * Creates an array of n elements initialized by default
+ */
 template <typename T>
-Array<T>::Array(unsigned int n) : _array(new T[n]), _size(n)
-{
-	return ;
-}
+
+
 
 #endif
