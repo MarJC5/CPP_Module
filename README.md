@@ -55,7 +55,7 @@ This module is designed to help you understand Subtype polymorphism, abstract cl
 - [ex02](./CPP_04/ex02/)
 - [ex03](./CPP_04/ex03/)
 
-## CPP 05
+## CPP 05 | `100/100`
 
 This module is designed to help you understand Try/Catch and Exceptions in CPP.
 
@@ -64,7 +64,7 @@ This module is designed to help you understand Try/Catch and Exceptions in CPP.
 - [ex02](./CPP_05/ex02/)
 - [ex03](./CPP_05/ex03/)
 
-## CPP 06
+## CPP 06 | `100/100`
 
 This module is designed to help you understand the different casts in CPP.
 
