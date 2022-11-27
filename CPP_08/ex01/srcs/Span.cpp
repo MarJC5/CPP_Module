@@ -108,6 +108,7 @@ int		Span::shortestSpan(void)
 
 	int	span = v[1] - v[0];
 
+	// compare all the values of the vector and keep the smallest
 	for (unsigned int i = 1; i < v.size() - 1; i++)
 	{
 		if (v[i + 1] - v[i] < span)
@@ -125,9 +126,13 @@ int		Span::longestSpan(void)
 
 	std::vector<int>	v = this->_v;
 
-	std::sort(v.begin(), v.end());
-	return (v[v.size() - 1] - v[0]);
+	std::sort(v.begin(), v.end()); // sort the vector
+	return (v[v.size() - 1] - v[0]); // last - first
 }
+
+/* **************************************************************************
+ * OVERLOADS << >>
+ */
 
 std::ostream	&operator<<(std::ostream &o, Span const &i)
 {
