@@ -72,7 +72,7 @@ This module is designed to help you understand the different casts in CPP.
 - [ex01](./CPP_06/ex01/)
 - [ex02](./CPP_06/ex02/)
 
-## CPP 07
+## CPP 07 | `100/100`
 
 This module is designed to help you understand Templates in CPP.
 
@@ -80,7 +80,7 @@ This module is designed to help you understand Templates in CPP.
 - [ex01](./CPP_07/ex01/)
 - [ex02](./CPP_07/ex02/)
 
-## CPP 08
+## CPP 08 | `100/100`
 
 This module is designed to help you understand templated containers, iterators and algorithms in CPP.
 
