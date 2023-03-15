@@ -4,8 +4,14 @@
 #include <iostream>
 #include <fstream>
 #include <stdexcept>
-#include <map>
 #include <ctime>
+#include <map>
+
+/*
+ * Map allows to store exchange rates for different dates and find the rate for a given date.
+ * Each node contains a key, a value and pointers to the left and right nodes.
+ * eg: 2017-01-01 is a key, 1000.0 is a value.
+ */
 
 class BitcoinExchange {
 	private:

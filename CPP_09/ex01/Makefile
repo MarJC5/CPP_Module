@@ -20,12 +20,12 @@ UP 		= \033[A
 CUT 	= \033[K
 
 # PROGRAM
-NAME		= btc
+NAME		= RPN
 
 # FOLDERS & FILES
 SRCS_DIR	= ./
 SRCS_FILES	= main.cpp
-SRCS_FILES	+= BitcoinExchange.cpp
+SRCS_FILES	+= RPN.cpp
 SRCS		:= ${patsubst %, ${SRCS_DIR}%, ${SRCS_FILES}}
 
 O_DIR		= ./objs/
