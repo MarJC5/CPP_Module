@@ -6,6 +6,10 @@
 #include <stdexcept>
 #include <ctime>
 #include <map>
+#include <sstream>
+#include <string>
+#include <cstdio>
+#include <cstdlib>
 
 /*
  * Map allows to store exchange rates for different dates and find the rate for a given date.
@@ -13,24 +17,23 @@
  * eg: 2017-01-01 is a key, 1000.0 is a value.
  */
 
-class BitcoinExchange {
-	private:
-		BitcoinExchange();
-		BitcoinExchange(const BitcoinExchange& src);
-		BitcoinExchange& operator=(const BitcoinExchange& rhs);
+class BitcoinExchange
+{
+public:
+	BitcoinExchange();
+	virtual ~BitcoinExchange();
 
-		std::map<std::string, double> _data;
-		std::string _fileName;
+	void loadData(const std::string &filename);
+	double getPrice(const std::string &date) const;
 
-	public:
-		BitcoinExchange(const std::string& fileName);
-		virtual ~BitcoinExchange();
+	bool isValidDate(const std::string &date);
+	bool parseInputLine(const std::string &line, std::string &date, double &value);
 
-		double findValue(const std::string& date);
-		void readData(const std::string& fileName);
+private:
+	BitcoinExchange(const BitcoinExchange &other);
+	BitcoinExchange &operator=(const BitcoinExchange &other);
 
-		void getExchangeRate(const std::string& fileName);
-
+	std::map<std::string, double> _priceData;
 };
 
 #endif
