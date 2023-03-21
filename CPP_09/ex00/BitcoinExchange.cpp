@@ -33,7 +33,7 @@ bool BitcoinExchange::parseInputLine(const std::string &line, std::string &date,
     std::istringstream iss(line);
     char separator;
 
-    if (!(iss >> date >> separator >> value)) // TODO: check if the input is not in the format "date <separator> value"
+    if (!(iss >> date >> separator >> value) || separator != '|')
     {
         std::cerr << "Error: bad input => " << line << std::endl;
         return false;
