@@ -32,8 +32,9 @@ bool BitcoinExchange::parseInputLine(const std::string &line, std::string &date,
 {
     std::istringstream iss(line);
     char separator;
+    std::string value_str;
 
-    if (!(iss >> date >> separator >> value) || separator != '|')
+    if (!(iss >> date >> separator >> value_str) || separator != '|')
     {
         std::cerr << "Error: bad input => " << line << std::endl;
         return false;
@@ -44,6 +45,28 @@ bool BitcoinExchange::parseInputLine(const std::string &line, std::string &date,
         std::cerr << "Error: bad input => " << date << std::endl;
         return false;
     }
+
+    // Check if value_str is a number
+    bool decimal_point_found = false;
+    for (size_t i = 0; i < value_str.length(); ++i)
+    {
+        if (value_str[i] == '.')
+        {
+            if (decimal_point_found) // More than one decimal point
+            {
+                std::cerr << "Error: not a valid number." << std::endl;
+                return false;
+            }
+            decimal_point_found = true;
+        }
+        else if (!std::isdigit(value_str[i]))
+        {
+            std::cerr << "Error: not a valid number." << std::endl;
+            return false;
+        }
+    }
+
+    value = std::atof(value_str.c_str());
 
     if (value < 0)
     {
@@ -59,6 +82,7 @@ bool BitcoinExchange::parseInputLine(const std::string &line, std::string &date,
 
     return true;
 }
+
 
 void BitcoinExchange::loadData(const std::string &filename)
 {
