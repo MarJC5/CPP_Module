@@ -17,6 +17,7 @@ int main(int argc, char** argv) {
 
     std::string line, date;
     double value;
+    std::getline(input, line);
     while (std::getline(input, line)) {
         if (exchange.parseInputLine(line, date, value)) {
             double price = exchange.getPrice(date);
