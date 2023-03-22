@@ -71,8 +71,8 @@ void PmergeMe::process()
 	std::cout << std::endl;
 
 	double elapsed_secs1 = double(end1 - begin1) / CLOCKS_PER_SEC;
-	std::cout << "Time to process a range of " << _size << " elements with " << _firstContainer << ": " << std::fixed << std::setprecision(6) << elapsed_secs1 * 1000000 << " us" << std::endl;
+	std::cout << "Time to process a range of " << _size << " elements with " << _firstContainer << ": " << elapsed_secs1 * 100 << " us" << std::endl;
 
 	double elapsed_secs2 = double(end2 - begin2) / CLOCKS_PER_SEC;
-	std::cout << "Time to process a range of " << _size << " elements with " << _secondContainer << ": " << std::fixed << std::setprecision(6) << elapsed_secs2 * 1000000 << " us" << std::endl;
+	std::cout << "Time to process a range of " << _size << " elements with " << _secondContainer << ": " << elapsed_secs2 * 100 << " us" << std::endl;
 }
