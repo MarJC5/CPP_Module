@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <list>
+#include <cctype>
 
 /*
  * std::vector is implemented as a contiguous array in memory,
@@ -28,45 +29,50 @@ PmergeMe::PmergeMe(int ac, char **av): _size(ac - 1)
 	}
 
 	for (int i = 1; i <= _size; i++) {
+		for (size_t j = 0; j < strlen(av[i]); j++){
+			if (!std::isdigit(av[i][j])) {
+				std::cerr << "Error: invalid argument \"" << av[i] << "\". Only positive integers are allowed." << std::endl;
+				exit(EXIT_FAILURE);
+			}
+		}
 		int num = std::atoi(av[i]);
 		if (num <= 0) {
 			std::cerr << "Error: invalid argument \"" << av[i] << "\". Only positive integers are allowed." << std::endl;
 			exit(EXIT_FAILURE);
 		}
 		_sequence.push_back(num);
+		_vec.push_back(num);
+		_list.push_back(num);
 	}
 }
 
 PmergeMe::~PmergeMe() {}
 
 void PmergeMe::process()
-{
+{	
+	// Inital
 	std::cout << "Before: ";
 	for (int i = 0; i < _size; i++) {
 		std::cout << _sequence[i] << " ";
 	}
 	std::cout << std::endl;
 
-	std::vector<int> tmp(_size);
-	std::copy(_sequence.begin(), _sequence.end(), tmp.begin());
-	clock_t begin1 = clock();
-	std::sort(tmp.begin(), tmp.end());
-	clock_t end1 = clock();
+	// Vector
 	_firstContainer = "std::vector";
+	clock_t begin1 = clock();
+	std::sort(_vec.begin(), _vec.end());
+	clock_t end1 = clock();
 
-	for (int i = 0; i < _size; i++) {
-		_sequence[i] = tmp[i];
-	}
-
-	std::list<int> l(_sequence.begin(), _sequence.end());
-	clock_t begin2 = clock();
-	l.sort();
-	clock_t end2 = clock();
+	// List
 	_secondContainer = "std::list";
+	clock_t begin2 = clock();
+	_list.sort();
+	clock_t end2 = clock();
 
+	// Result sorted
 	std::cout << "After: ";
-	for (int i = 0; i < _size; i++) {
-		std::cout << _sequence[i] << " ";
+	for (std::vector<int>::iterator it = _vec.begin(); it!= _vec.end(); it++) {
+		std::cout << *it << " ";
 	}
 	std::cout << std::endl;
 
