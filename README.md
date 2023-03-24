@@ -88,7 +88,7 @@ This module is designed to help you understand templated containers, iterators a
 - [ex01](./CPP_08/ex01/)
 - [ex02](./CPP_08/ex02/)
 
-## CPP 09 | `in progress`
+## CPP 09 | `100/100`
 
 This module is designed to help you understand the containers in CPP.
 
